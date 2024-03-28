@@ -7,8 +7,17 @@
 
 import SwiftUI
 
-struct LoginOptionView: View {
-    
+struct LoginOptionView : View {
+                            
+    /*
+     Properties of LoginOptionView:
+     
+     label - Will be shown as the text on the button
+     
+     function - Will handle authentication, these functions
+     should be defined in the Controllers/Authentication directory
+     */
+
     let label: String
     let function: () -> Void
     
