@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		545EC9EC2BB5193200143A64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC9EB2BB5193200143A64 /* User.swift */; };
+		545EC9EE2BB51C3B00143A64 /* Hive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC9ED2BB51C3B00143A64 /* Hive.swift */; };
+		545EC9F02BB51D0A00143A64 /* Chore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC9EF2BB51D0A00143A64 /* Chore.swift */; };
 		5487CA632BAEBD060070F6C3 /* CoHiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487CA622BAEBD060070F6C3 /* CoHiveApp.swift */; };
 		5487CA652BAEBD060070F6C3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487CA642BAEBD060070F6C3 /* ContentView.swift */; };
 		5487CA672BAEBD060070F6C3 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487CA662BAEBD060070F6C3 /* Item.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		545EC9EB2BB5193200143A64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		545EC9ED2BB51C3B00143A64 /* Hive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hive.swift; sourceTree = "<group>"; };
+		545EC9EF2BB51D0A00143A64 /* Chore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chore.swift; sourceTree = "<group>"; };
 		5487CA5F2BAEBD060070F6C3 /* CoHive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoHive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5487CA622BAEBD060070F6C3 /* CoHiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoHiveApp.swift; sourceTree = "<group>"; };
 		5487CA642BAEBD060070F6C3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +83,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		545EC9E82BB517FC00143A64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5487CA642BAEBD060070F6C3 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		545EC9E92BB5182600143A64 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5487CA662BAEBD060070F6C3 /* Item.swift */,
+				545EC9EB2BB5193200143A64 /* User.swift */,
+				545EC9ED2BB51C3B00143A64 /* Hive.swift */,
+				545EC9EF2BB51D0A00143A64 /* Chore.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		545EC9EA2BB5182E00143A64 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5487CA622BAEBD060070F6C3 /* CoHiveApp.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		5487CA562BAEBD060070F6C3 = {
 			isa = PBXGroup;
 			children = (
@@ -101,10 +134,10 @@
 		5487CA612BAEBD060070F6C3 /* CoHive */ = {
 			isa = PBXGroup;
 			children = (
+				545EC9EA2BB5182E00143A64 /* Controllers */,
+				545EC9E92BB5182600143A64 /* Models */,
+				545EC9E82BB517FC00143A64 /* Views */,
 				5490890F2BB044D4004327AD /* GoogleService-Info.plist */,
-				5487CA622BAEBD060070F6C3 /* CoHiveApp.swift */,
-				5487CA642BAEBD060070F6C3 /* ContentView.swift */,
-				5487CA662BAEBD060070F6C3 /* Item.swift */,
 				5487CA682BAEBD080070F6C3 /* Assets.xcassets */,
 				5487CA6A2BAEBD080070F6C3 /* Preview Content */,
 			);
@@ -272,9 +305,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545EC9EC2BB5193200143A64 /* User.swift in Sources */,
 				5487CA652BAEBD060070F6C3 /* ContentView.swift in Sources */,
 				5487CA672BAEBD060070F6C3 /* Item.swift in Sources */,
+				545EC9F02BB51D0A00143A64 /* Chore.swift in Sources */,
 				5487CA632BAEBD060070F6C3 /* CoHiveApp.swift in Sources */,
+				545EC9EE2BB51C3B00143A64 /* Hive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
