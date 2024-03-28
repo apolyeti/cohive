@@ -80,6 +80,7 @@
 		5487CA562BAEBD060070F6C3 = {
 			isa = PBXGroup;
 			children = (
+				5490890D2BB043EB004327AD /* .gitignore */,
 				5487CA612BAEBD060070F6C3 /* CoHive */,
 				5487CA742BAEBD080070F6C3 /* CoHiveTests */,
 				5487CA7E2BAEBD080070F6C3 /* CoHiveUITests */,
@@ -106,7 +107,6 @@
 				5487CA662BAEBD060070F6C3 /* Item.swift */,
 				5487CA682BAEBD080070F6C3 /* Assets.xcassets */,
 				5487CA6A2BAEBD080070F6C3 /* Preview Content */,
-				5490890D2BB043EB004327AD /* .gitignore */,
 			);
 			path = CoHive;
 			sourceTree = "<group>";
