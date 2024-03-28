@@ -22,11 +22,16 @@ struct CoHiveApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
 
+    
     var body: some Scene {
+        let customFont : Font = Font.custom("Josefin Sans", size: 20)
         WindowGroup {
-            ContentView()
+            SignedOutView()
+                .font(customFont)
         }
         .modelContainer(sharedModelContainer)
     }
+    
 }
