@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5444C32E2BB6746400836F33 /* NoGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C32D2BB6746400836F33 /* NoGroupView.swift */; };
+		5444C3302BB674A700836F33 /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C32F2BB674A700836F33 /* CreateGroupView.swift */; };
+		5444C3322BB674FA00836F33 /* JoinGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3312BB674FA00836F33 /* JoinGroupView.swift */; };
+		5444C3342BB675DB00836F33 /* GroupDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3332BB675DB00836F33 /* GroupDashboardView.swift */; };
+		5444C3362BB6763C00836F33 /* InviteUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3352BB6763C00836F33 /* InviteUserView.swift */; };
+		5444C33A2BB6771E00836F33 /* GroupCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3392BB6771E00836F33 /* GroupCreate.swift */; };
+		5444C33C2BB6776800836F33 /* GroupDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C33B2BB6776700836F33 /* GroupDelete.swift */; };
+		5444C33F2BB6780900836F33 /* AddUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C33E2BB6780900836F33 /* AddUser.swift */; };
+		5444C3412BB6782900836F33 /* RemoveUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3402BB6782900836F33 /* RemoveUser.swift */; };
 		545EC9EC2BB5193200143A64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC9EB2BB5193200143A64 /* User.swift */; };
 		545EC9EE2BB51C3B00143A64 /* Hive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC9ED2BB51C3B00143A64 /* Hive.swift */; };
 		545EC9F02BB51D0A00143A64 /* Chore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC9EF2BB51D0A00143A64 /* Chore.swift */; };
@@ -45,6 +54,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5444C32D2BB6746400836F33 /* NoGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoGroupView.swift; sourceTree = "<group>"; };
+		5444C32F2BB674A700836F33 /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
+		5444C3312BB674FA00836F33 /* JoinGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupView.swift; sourceTree = "<group>"; };
+		5444C3332BB675DB00836F33 /* GroupDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDashboardView.swift; sourceTree = "<group>"; };
+		5444C3352BB6763C00836F33 /* InviteUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUserView.swift; sourceTree = "<group>"; };
+		5444C3392BB6771E00836F33 /* GroupCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreate.swift; sourceTree = "<group>"; };
+		5444C33B2BB6776700836F33 /* GroupDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDelete.swift; sourceTree = "<group>"; };
+		5444C33E2BB6780900836F33 /* AddUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUser.swift; sourceTree = "<group>"; };
+		5444C3402BB6782900836F33 /* RemoveUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveUser.swift; sourceTree = "<group>"; };
 		545EC9EB2BB5193200143A64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		545EC9ED2BB51C3B00143A64 /* Hive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hive.swift; sourceTree = "<group>"; };
 		545EC9EF2BB51D0A00143A64 /* Chore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chore.swift; sourceTree = "<group>"; };
@@ -94,9 +112,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5444C3292BB62B1B00836F33 /* SessionViews */ = {
+			isa = PBXGroup;
+			children = (
+				5444C32B2BB62D7C00836F33 /* GroupViews */,
+				5444C32A2BB62D5400836F33 /* NoGroupViews */,
+			);
+			path = SessionViews;
+			sourceTree = "<group>";
+		};
+		5444C32A2BB62D5400836F33 /* NoGroupViews */ = {
+			isa = PBXGroup;
+			children = (
+				5444C32D2BB6746400836F33 /* NoGroupView.swift */,
+				5444C32F2BB674A700836F33 /* CreateGroupView.swift */,
+				5444C3312BB674FA00836F33 /* JoinGroupView.swift */,
+			);
+			path = NoGroupViews;
+			sourceTree = "<group>";
+		};
+		5444C32B2BB62D7C00836F33 /* GroupViews */ = {
+			isa = PBXGroup;
+			children = (
+				5444C3332BB675DB00836F33 /* GroupDashboardView.swift */,
+				5444C3352BB6763C00836F33 /* InviteUserView.swift */,
+			);
+			path = GroupViews;
+			sourceTree = "<group>";
+		};
+		5444C32C2BB62DB600836F33 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				54C0CA9E2BB54D5E00E9267A /* LoginOptionView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		5444C3372BB676D700836F33 /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				5444C33D2BB677B900836F33 /* AddRemoveUser */,
+				5444C3382BB676FB00836F33 /* CreateDelete */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
+		5444C3382BB676FB00836F33 /* CreateDelete */ = {
+			isa = PBXGroup;
+			children = (
+				5444C3392BB6771E00836F33 /* GroupCreate.swift */,
+				5444C33B2BB6776700836F33 /* GroupDelete.swift */,
+			);
+			path = CreateDelete;
+			sourceTree = "<group>";
+		};
+		5444C33D2BB677B900836F33 /* AddRemoveUser */ = {
+			isa = PBXGroup;
+			children = (
+				5444C33E2BB6780900836F33 /* AddUser.swift */,
+				5444C3402BB6782900836F33 /* RemoveUser.swift */,
+			);
+			path = AddRemoveUser;
+			sourceTree = "<group>";
+		};
 		545EC9E82BB517FC00143A64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5444C3292BB62B1B00836F33 /* SessionViews */,
 				54E0A1FE2BB53981002009B0 /* AuthenticationViews */,
 			);
 			path = Views;
@@ -115,6 +197,7 @@
 		545EC9EA2BB5182E00143A64 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5444C3372BB676D700836F33 /* Groups */,
 				54C0CAA52BB5548500E9267A /* UserAuthentication */,
 				5487CA622BAEBD060070F6C3 /* CoHiveApp.swift */,
 			);
@@ -183,7 +266,7 @@
 		54C0CAA02BB5516E00E9267A /* LoginOptions */ = {
 			isa = PBXGroup;
 			children = (
-				54C0CA9E2BB54D5E00E9267A /* LoginOptionView.swift */,
+				5444C32C2BB62DB600836F33 /* ReusableViews */,
 				54C0CAA12BB5518C00E9267A /* RegisterOption.swift */,
 			);
 			path = LoginOptions;
@@ -365,12 +448,21 @@
 			files = (
 				54C0CAA72BB554B200E9267A /* GoogleAuthentication.swift in Sources */,
 				545EC9EC2BB5193200143A64 /* User.swift in Sources */,
+				5444C33C2BB6776800836F33 /* GroupDelete.swift in Sources */,
 				54C0CA9F2BB54D5E00E9267A /* LoginOptionView.swift in Sources */,
 				54C0CAA92BB554CA00E9267A /* RegisterUser.swift in Sources */,
+				5444C3302BB674A700836F33 /* CreateGroupView.swift in Sources */,
+				5444C3362BB6763C00836F33 /* InviteUserView.swift in Sources */,
+				5444C32E2BB6746400836F33 /* NoGroupView.swift in Sources */,
 				5487CA652BAEBD060070F6C3 /* SignedOutView.swift in Sources */,
 				54C0CAA42BB5547B00E9267A /* AuthenticateUser.swift in Sources */,
 				545EC9F02BB51D0A00143A64 /* Chore.swift in Sources */,
+				5444C3342BB675DB00836F33 /* GroupDashboardView.swift in Sources */,
+				5444C33F2BB6780900836F33 /* AddUser.swift in Sources */,
 				54C0CAA22BB5518C00E9267A /* RegisterOption.swift in Sources */,
+				5444C3322BB674FA00836F33 /* JoinGroupView.swift in Sources */,
+				5444C33A2BB6771E00836F33 /* GroupCreate.swift in Sources */,
+				5444C3412BB6782900836F33 /* RemoveUser.swift in Sources */,
 				5487CA632BAEBD060070F6C3 /* CoHiveApp.swift in Sources */,
 				545EC9EE2BB51C3B00143A64 /* Hive.swift in Sources */,
 			);

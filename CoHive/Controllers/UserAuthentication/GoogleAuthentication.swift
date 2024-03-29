@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+/*
+ GoogleAuthentication will handle the logic of users choosing to login using their google account.
+*/
