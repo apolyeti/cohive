@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  SignedOutView.swift
 //  CoHive
 //
 //  Created by Arveen Azhand on 3/23/24.
