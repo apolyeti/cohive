@@ -7,12 +7,20 @@
 
 import SwiftUI
 import SwiftData
+import Firebase
 
 @main
 struct CoHiveApp: App {
+    @StateObject var firestoreManager = FirestoreManager()
+    
+    init() {
+        FirebaseApp.configure()
+    }
     var sharedModelContainer: ModelContainer = {
+        // (Hovhannes) temporarily changed referenced schema field to User to prevent error
         let schema = Schema([
-            Item.self,
+//            Item.self,
+            User.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -32,6 +40,7 @@ struct CoHiveApp: App {
                 .font(customFont)
         }
         .modelContainer(sharedModelContainer)
+        .environmentObject(firestoreManager)
     }
     
 }
