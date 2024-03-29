@@ -27,8 +27,10 @@ struct LoginOptionView : View {
                 Rectangle()
                     .frame(width: 270, height: 35)
                     .foregroundColor(Color("ButtonColor"))
-                    .border(Color.accentColor)
-                    .cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.accentColor, lineWidth: 1)
+                        )
                     .shadow(radius: 3, y: 3)
                 Text(label)
             }
@@ -38,7 +40,8 @@ struct LoginOptionView : View {
 }
 
 #Preview {
-    LoginOptionView(label: "Test!") {
+    LoginOptionView(label: "This is a login option!") {
         print("test!")
     }
+    .font(Font.custom("Josefin Sans", size: 15))
 }

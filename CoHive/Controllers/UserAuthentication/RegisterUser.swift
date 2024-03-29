@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+/*
+ RegisterUser will handle the logic of registering a new user into the database
+*/
