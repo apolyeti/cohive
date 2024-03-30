@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  SignedOutView.swift
 //  CoHive
 //
 //  Created by Arveen Azhand on 3/23/24.
@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignedOutView: View {
+    @EnvironmentObject var firestoreManager: FirestoreManager
     let accent : Color = Color("AccentColor")
     var body: some View {
         ZStack {
@@ -15,6 +16,8 @@ struct SignedOutView: View {
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             VStack {
                 Spacer()
+                Text("hive found: \(firestoreManager.hive)")
+                        .padding()
                 Image("CoHiveLogo")
                 Spacer()
                 LoginOptionView(label: "Sign in using Google") {
@@ -36,4 +39,5 @@ struct SignedOutView: View {
 #Preview {
     SignedOutView()
         .font(Font.custom("Josefin Sans", size: 15))
+        .environmentObject(FirestoreManager())
 }
