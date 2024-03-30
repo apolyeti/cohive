@@ -18,10 +18,10 @@ struct SignedOutView: View {
                 Image("CoHiveLogo")
                 Spacer()
                 LoginOptionView(label: "Sign in using Google") {
-                    print("test!")
+                    print("test0")
                 }
                 LoginOptionView(label: "Register your own account") {
-                    print("test!")
+                    print("test1")
                 }
                 LoginOptionView(label: "Returning user? Login here") {
                     print("test2")
