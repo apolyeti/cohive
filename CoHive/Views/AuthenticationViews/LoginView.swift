@@ -22,7 +22,7 @@ struct LoginView: View {
         }
         .padding()
     }
-    
+    // fix things pls
     func login() {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
