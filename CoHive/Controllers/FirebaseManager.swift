@@ -14,7 +14,7 @@ class FirestoreManager: ObservableObject {
     init() {
         fetchHive(hiveRef: "hive001")
     }
-    
+    // thatll do it
     func fetchHive(hiveRef: String) {
         let db = Firestore.firestore()
         let docRef = db.collection("hives").document(hiveRef)
