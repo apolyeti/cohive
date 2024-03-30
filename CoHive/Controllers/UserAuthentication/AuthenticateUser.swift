@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+/*
+ AuthenticateUser will handle the logic for authentication when opening the app or logging in.
+*/
