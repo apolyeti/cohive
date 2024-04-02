@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
 
 struct LoginView: View {
     @State var email = ""
@@ -25,13 +26,13 @@ struct LoginView: View {
     // fix things pls
     func login() {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            if error != nil {
-                print(error?.localizedDescription ?? "")
-            } else {
-                print("success")
-            }
+                    if error != nil {
+                        print(error?.localizedDescription ?? "")
+                    } else {
+                        print("success")
+                    }
+                }
         }
-    }
 }
 
 #Preview {
