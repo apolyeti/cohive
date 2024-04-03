@@ -10,7 +10,7 @@ import FirebaseCore
 import GoogleSignIn
 
 
-@UIApplicationMain
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     

@@ -34,12 +34,14 @@ final class AuthenticationViewModel: ObservableObject {
 struct SignedOutView: View {
     @EnvironmentObject var firestoreManager: FirestoreManager
     @StateObject private var viewModel = AuthenticationViewModel()
+    @Binding var showSignInView: Bool
     
     let accent : Color = Color("AccentColor")
     var body: some View {
         VStack {
+            Spacer()
             NavigationLink {
-                Text("navigation code")
+                SignInUsingEmailView(showSignInView: $showSignInView)
             } label: {
                 Text("Sign in using email")
             }
@@ -52,15 +54,16 @@ struct SignedOutView: View {
             }
             Spacer()
 
-        }.navigationTitle("Sign in")
+        }
+        .navigationTitle("Sign in")
     }
 }
 
 
 #Preview {
     NavigationStack {
-        SignedOutView()
-            .font(Font.custom("Josefin Sans", size: 15))
-            .environmentObject(FirestoreManager())
+        SignedOutView(showSignInView: .constant(false))
+            .font(Font.custom("Josefin Sans", size: 15) )
+//            .environmentObject(FirestoreManager())
     }
 }
