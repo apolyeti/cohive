@@ -34,6 +34,12 @@ class FirestoreManager: ObservableObject {
         return AuthDataResultModel(user: authDataResult.user)
     }
     
+    @discardableResult
+    func signInUser(email: String, password: String) async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
+        return AuthDataResultModel(user: authDataResult.user)
+    }
+    
     func getAuthenticatedUser() throws -> AuthDataResultModel {
         guard let user = Auth.auth().currentUser else {
             throw URLError(.badServerResponse)
@@ -44,6 +50,28 @@ class FirestoreManager: ObservableObject {
     
     func signOut() throws {
         try Auth.auth().signOut()
+    }
+    
+    func sendPasswordReset(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
+    }
+    
+    func updateUserPassword(newPassword: String) async throws {
+        guard let authenticatedUser = Auth.auth().currentUser else {
+            throw URLError(.badServerResponse)
+        }
+        
+        try await authenticatedUser.updatePassword(to: newPassword)
+    }
+    
+    func updateUserEmail(newEmail: String) async throws {
+        guard let authenticatedUser = Auth.auth().currentUser else {
+            throw URLError(.badServerResponse)
+        }
+        guard let userEmail = authenticatedUser.email else {
+            throw URLError(.badServerResponse)
+        }
+        try await authenticatedUser.sendEmailVerification(beforeUpdatingEmail: userEmail)
     }
     
 }

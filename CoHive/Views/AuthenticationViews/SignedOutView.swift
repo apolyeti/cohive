@@ -10,30 +10,9 @@ import GoogleSignIn
 import GoogleSignInSwift
 import FirebaseAuth
 
-@MainActor
-final class AuthenticationViewModel: ObservableObject {
-    func signInGoogle() async throws {
-        guard let topViewController = Utilities.shared.topViewController() else {
-            throw URLError(.cannotFindHost)
-        }
-        
-        let GoogleSignedInResult = try await GIDSignIn.sharedInstance.signIn(withPresenting: topViewController)
-        
-        guard let idToken = GoogleSignedInResult.user.idToken?.tokenString else {
-            throw URLError(.badServerResponse)
-        }
-        
-        let accessToken: String = GoogleSignedInResult.user.accessToken.tokenString
-        
-        let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
-        
-        // Now with credential, sign into Firebase
-    }
-}
-
 struct SignedOutView: View {
     @EnvironmentObject var firestoreManager: FirestoreManager
-    @StateObject private var viewModel = AuthenticationViewModel()
+    @StateObject private var viewModel = SignedOutViewModel()
     @Binding var showSignInView: Bool
     
     let accent : Color = Color("AccentColor")

@@ -7,16 +7,6 @@
 
 import SwiftUI
 
-@MainActor
-final class SettingsViewModel: ObservableObject {
-    
-    func signOut() throws {
-        try FirestoreManager.shared.signOut()
-    }
-    
-}
-
-
 struct SettingsView: View {
     @StateObject private var viewModel = SettingsViewModel()
     @Binding var showSignInView: Bool
@@ -28,6 +18,17 @@ struct SettingsView: View {
                     do {
                         try viewModel.signOut()
                         showSignInView = true
+                    } catch {
+                        print("Failed signing out")
+                        print(error)
+                    }
+                }
+            }
+            Button("reset password") {
+                Task {
+                    do {
+                        try await viewModel.resetPassword()
+                        print("PASSWORD RESET")
                     } catch {
                         print("Failed signing out")
                         print(error)

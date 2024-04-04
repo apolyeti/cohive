@@ -14,13 +14,6 @@ import GoogleSignIn
 
 @main
 struct CoHiveApp: App {
-    //    @StateObject var firestoreManager = FirestoreManager()
-    //    
-    //    
-    //    init() {
-    //        FirebaseApp.configure()
-    //    }
-    // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var sharedModelContainer: ModelContainer = {

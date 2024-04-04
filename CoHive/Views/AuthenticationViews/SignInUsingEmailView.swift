@@ -9,24 +9,6 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 
-@MainActor
-final class SignInUsingEmailViewModel : ObservableObject {
-    
-    @Published var email = ""
-    @Published var password = ""
-    
-    func signIn() async throws {
-        guard !email.isEmpty, !password.isEmpty else {
-            print("No email or password found")
-            return
-        }
-       
-        try await FirestoreManager.shared.createUser(email: email, password: password)
-        
-    }
-}
-
-
 struct SignInUsingEmailView: View {
     @StateObject private var viewModel = SignInUsingEmailViewModel()
     @Binding var showSignInView : Bool
@@ -47,10 +29,19 @@ struct SignInUsingEmailView: View {
             Button {
                 Task {
                     do {
+                        try await viewModel.signUp()
+                        showSignInView = false
+                        return
+                    } catch {
+                        print("User is either signed up, or invalid data inputted!")
+                    }
+                    
+                    do {
                         try await viewModel.signIn()
                         showSignInView = false
+                        return
                     } catch {
-                        
+                        print(error)
                     }
                 }
             } label: {
