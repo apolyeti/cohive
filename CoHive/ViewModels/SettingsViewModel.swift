@@ -10,9 +10,19 @@ import Foundation
 @MainActor
 final class SettingsViewModel: ObservableObject {
     
+    @Published var authProviders: [AuthProviderOptions] = []
+    
+    func loadAuthProviders() {
+        if let providers = try? FirestoreManager.shared.getProviders() {
+            authProviders = providers
+        }
+        
+    }
+    
     func signOut() throws {
         try FirestoreManager.shared.signOut()
     }
+
     
     func resetPassword() async throws {
         let authUser = try FirestoreManager.shared.getAuthenticatedUser()

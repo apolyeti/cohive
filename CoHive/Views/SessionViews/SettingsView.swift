@@ -24,17 +24,22 @@ struct SettingsView: View {
                     }
                 }
             }
-            Button("reset password") {
-                Task {
-                    do {
-                        try await viewModel.resetPassword()
-                        print("PASSWORD RESET")
-                    } catch {
-                        print("Failed signing out")
-                        print(error)
+            if viewModel.authProviders.contains(.email) {
+                Button("reset password") {
+                    Task {
+                        do {
+                            try await viewModel.resetPassword()
+                            print("PASSWORD RESET")
+                        } catch {
+                            print("Failed signing out")
+                            print(error)
+                        }
                     }
                 }
             }
+        }
+        .onAppear {
+            viewModel.loadAuthProviders()
         }
         .navigationTitle("settings")
     }

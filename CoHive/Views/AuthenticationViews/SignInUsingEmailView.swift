@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  SignInUsingEmailView.swift
 //  CoHive
 //
 //  Created by Hovhannes Muradyan on 3/29/24.

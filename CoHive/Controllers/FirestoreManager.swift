@@ -12,6 +12,7 @@ import FirebaseAuth
 import Firebase
 
 struct AuthDataResultModel {
+    
     let uid: String
     let email: String?
     let photoUrl: String?
@@ -21,12 +22,53 @@ struct AuthDataResultModel {
         self.email = user.email
         self.photoUrl = user.photoURL?.absoluteString
     }
+    
+}
+
+enum AuthProviderOptions: String {
+    case email = "password"
+    
+    case google = "google.com"
+    
 }
 
 class FirestoreManager: ObservableObject {
     
     static let shared = FirestoreManager()
     private init() {}
+    
+    func getAuthenticatedUser() throws -> AuthDataResultModel {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badServerResponse)
+        }
+        
+        return AuthDataResultModel(user: user)
+    }
+    
+    func getProviders() throws -> [AuthProviderOptions] {
+        guard let providerData = Auth.auth().currentUser?.providerData else {
+            throw URLError(.badServerResponse)
+        }
+        
+        var providers: [AuthProviderOptions] = []
+        for provider in providerData {
+            if let option = AuthProviderOptions(rawValue: provider.providerID) {
+                providers.append(option)
+            } else {
+                assertionFailure("Provider option not found: \(provider.providerID)")
+            }
+        }
+        return providers
+    }
+    
+    func signOut() throws {
+        try Auth.auth().signOut()
+    }
+    
+}
+
+// MARK: SIGN IN EMAIL
+extension FirestoreManager {
     
     @discardableResult
     func createUser(email: String, password: String) async throws -> AuthDataResultModel {
@@ -39,18 +81,7 @@ class FirestoreManager: ObservableObject {
         let authDataResult = try await Auth.auth().signIn(withEmail: email, password: password)
         return AuthDataResultModel(user: authDataResult.user)
     }
-    
-    func getAuthenticatedUser() throws -> AuthDataResultModel {
-        guard let user = Auth.auth().currentUser else {
-            throw URLError(.badServerResponse)
-        }
-        
-        return AuthDataResultModel(user: user)
-    }
-    
-    func signOut() throws {
-        try Auth.auth().signOut()
-    }
+
     
     func sendPasswordReset(email: String) async throws {
         try await Auth.auth().sendPasswordReset(withEmail: email)
@@ -72,6 +103,26 @@ class FirestoreManager: ObservableObject {
             throw URLError(.badServerResponse)
         }
         try await authenticatedUser.sendEmailVerification(beforeUpdatingEmail: userEmail)
+    }
+    
+}
+
+
+// MARK: SIGN IN SSO
+extension FirestoreManager {
+    @discardableResult
+    func signInUsingGoogleCredential(tokens: GoogleSignInResultModel) async throws -> AuthDataResultModel {
+        let idToken = tokens.idToken
+        let accessToken = tokens.accessToken
+        
+        let authCredential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+
+        return try await signInUsingAuthenticationCredential(authCredential: authCredential)
+    }
+    
+    func signInUsingAuthenticationCredential(authCredential: AuthCredential) async throws -> AuthDataResultModel {
+        let authDataResult = try await Auth.auth().signIn(with: authCredential)
+        return AuthDataResultModel(user: authDataResult.user)
     }
     
 }

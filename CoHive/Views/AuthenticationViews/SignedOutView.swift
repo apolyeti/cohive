@@ -29,7 +29,14 @@ struct SignedOutView: View {
                                 scheme: .dark,
                                 style: .standard,
                                 state: .normal)) {
-                    print("tapped!")
+                Task {
+                    do {
+                        try await viewModel.signInGoogle()
+                        showSignInView = false
+                    } catch {
+                        print(error)
+                    }
+                }
             }
             Spacer()
 

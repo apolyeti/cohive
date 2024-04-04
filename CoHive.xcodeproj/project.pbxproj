@@ -33,6 +33,7 @@
 		548290BE2BBE239D002BD95D /* SignedOutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548290BD2BBE239D002BD95D /* SignedOutViewModel.swift */; };
 		548290C02BBE2400002BD95D /* SignInUsingEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548290BF2BBE2400002BD95D /* SignInUsingEmailViewModel.swift */; };
 		548290C22BBE242B002BD95D /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548290C12BBE242B002BD95D /* SettingsViewModel.swift */; };
+		548290C62BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548290C52BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift */; };
 		5487CA632BAEBD060070F6C3 /* CoHiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487CA622BAEBD060070F6C3 /* CoHiveApp.swift */; };
 		5487CA652BAEBD060070F6C3 /* SignedOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487CA642BAEBD060070F6C3 /* SignedOutView.swift */; };
 		5487CA692BAEBD080070F6C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5487CA682BAEBD080070F6C3 /* Assets.xcassets */; };
@@ -92,7 +93,8 @@
 		548290BD2BBE239D002BD95D /* SignedOutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedOutViewModel.swift; sourceTree = "<group>"; };
 		548290BF2BBE2400002BD95D /* SignInUsingEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUsingEmailViewModel.swift; sourceTree = "<group>"; };
 		548290C12BBE242B002BD95D /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		5487CA5F2BAEBD060070F6C3 /* CoHive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = CoHive.app; path = "/Users/arveenazhand/Documents/repos/CoHive/CoHive/build/Debug-iphoneos/CoHive.app"; sourceTree = "<absolute>"; };
+		548290C32BBE2D97002BD95D /* CoHive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoHive.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		548290C52BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUsingGoogleHelper.swift; sourceTree = "<group>"; };
 		5487CA622BAEBD060070F6C3 /* CoHiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoHiveApp.swift; sourceTree = "<group>"; };
 		5487CA642BAEBD060070F6C3 /* SignedOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedOutView.swift; sourceTree = "<group>"; };
 		5487CA682BAEBD080070F6C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,7 +105,7 @@
 		5487CA7F2BAEBD080070F6C3 /* CoHiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoHiveUITests.swift; sourceTree = "<group>"; };
 		5487CA812BAEBD080070F6C3 /* CoHiveUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoHiveUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5490890D2BB043EB004327AD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		54C0CA9D2BB53DED00E9267A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		54C0CA9D2BB53DED00E9267A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54C0CA9E2BB54D5E00E9267A /* LoginOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionView.swift; sourceTree = "<group>"; };
 		54C0CAA12BB5518C00E9267A /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		54E0A2042BB53A45002009B0 /* JosefinSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JosefinSans.ttf; sourceTree = "<group>"; };
@@ -247,11 +249,20 @@
 		548290BC2BBE237D002BD95D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				548290BD2BBE239D002BD95D /* SignedOutViewModel.swift */,
-				548290BF2BBE2400002BD95D /* SignInUsingEmailViewModel.swift */,
+				548290C42BBE2F9F002BD95D /* AuthenticationViewModels */,
 				548290C12BBE242B002BD95D /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		548290C42BBE2F9F002BD95D /* AuthenticationViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				548290BF2BBE2400002BD95D /* SignInUsingEmailViewModel.swift */,
+				548290BD2BBE239D002BD95D /* SignedOutViewModel.swift */,
+				548290C52BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift */,
+			);
+			path = AuthenticationViewModels;
 			sourceTree = "<group>";
 		};
 		5487CA562BAEBD060070F6C3 = {
@@ -262,15 +273,16 @@
 				5487CA612BAEBD060070F6C3 /* CoHive */,
 				5487CA742BAEBD080070F6C3 /* CoHiveTests */,
 				5487CA7E2BAEBD080070F6C3 /* CoHiveUITests */,
+				548290C32BBE2D97002BD95D /* CoHive.app */,
 			);
 			sourceTree = "<group>";
 		};
 		5487CA612BAEBD060070F6C3 /* CoHive */ = {
 			isa = PBXGroup;
 			children = (
+				54C0CA9D2BB53DED00E9267A /* Info.plist */,
 				548290BC2BBE237D002BD95D /* ViewModels */,
 				548290AD2BBBAF1E002BD95D /* Utils */,
-				54C0CA9D2BB53DED00E9267A /* Info.plist */,
 				54E0A2022BB53A16002009B0 /* Resources */,
 				545EC9EA2BB5182E00143A64 /* Controllers */,
 				545EC9E92BB5182600143A64 /* Models */,
@@ -367,7 +379,7 @@
 				548290AB2BBA2114002BD95D /* GoogleSignInSwift */,
 			);
 			productName = CoHive;
-			productReference = 5487CA5F2BAEBD060070F6C3 /* CoHive.app */;
+			productReference = 548290C32BBE2D97002BD95D /* CoHive.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5487CA702BAEBD080070F6C3 /* CoHiveTests */ = {
@@ -497,6 +509,7 @@
 				5444C32E2BB6746400836F33 /* NoGroupView.swift in Sources */,
 				5487CA652BAEBD060070F6C3 /* SignedOutView.swift in Sources */,
 				548290B92BBE211D002BD95D /* GIDSignInButton.swift in Sources */,
+				548290C62BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift in Sources */,
 				545EC9F02BB51D0A00143A64 /* Chore.swift in Sources */,
 				5444C3342BB675DB00836F33 /* GroupDashboardView.swift in Sources */,
 				548290C02BBE2400002BD95D /* SignInUsingEmailViewModel.swift in Sources */,
