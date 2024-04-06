@@ -8,27 +8,49 @@
 import SwiftUI
 import GoogleSignIn
 import GoogleSignInSwift
-import FirebaseAuth
+import AuthenticationServices
+
+struct SignInWithAppleButtonViewRepresentable: UIViewRepresentable {
+    
+    let type: ASAuthorizationAppleIDButton.ButtonType
+    let style: ASAuthorizationAppleIDButton.Style
+    
+    func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
+        ASAuthorizationAppleIDButton(authorizationButtonType: type,
+                                            authorizationButtonStyle: style)
+    }
+    
+    func updateUIView(_ uiView: ASAuthorizationAppleIDButton, context: Context) {
+        
+    }
+    
+}
+
 
 struct SignedOutView: View {
-    @EnvironmentObject var firestoreManager: FirestoreManager
     @StateObject private var viewModel = SignedOutViewModel()
     @Binding var showSignInView: Bool
     
     let accent : Color = Color("AccentColor")
     var body: some View {
         VStack {
-            Spacer()
             NavigationLink {
                 SignInUsingEmailView(showSignInView: $showSignInView)
             } label: {
                 Text("Sign in using email")
+                    .padding()
+                    .frame(width: 400, height: 55)
+                    .background(content: {
+                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            .foregroundStyle(Color("BackgroundColor"))
+                    })
             }
             
             GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(
                                 scheme: .dark,
                                 style: .standard,
-                                state: .normal)) {
+                                state: .normal))
+            {
                 Task {
                     do {
                         try await viewModel.signInGoogle()
@@ -38,8 +60,18 @@ struct SignedOutView: View {
                     }
                 }
             }
+            .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
+            .frame(height: 55)
+            
+            Button {
+                
+            } label: {
+                SignInWithAppleButtonViewRepresentable(type: .default, style: .black)
+                    .allowsHitTesting(false)
+                    .frame(height: 55)
+            }
+                    
             Spacer()
-
         }
         .navigationTitle("Sign in")
     }
