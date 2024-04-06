@@ -11,6 +11,7 @@ import FirebaseFirestore
 import FirebaseAuth
 import Firebase
 
+/* AUTHDATARESULT MODEL START */
 struct AuthDataResultModel {
     
     let uid: String
@@ -24,16 +25,20 @@ struct AuthDataResultModel {
     }
     
 }
+/* AUTHDATARESULT MODEL END */
 
 enum AuthProviderOptions: String {
     case email = "password"
     
     case google = "google.com"
     
+    case apple = "apple.com"
+    
 }
 
+/* FIRESTORE MANAGER CLASS START */
 class FirestoreManager: ObservableObject {
-    
+    /// All our Firestore logic will be handled here in this file.
     static let shared = FirestoreManager()
     private init() {}
     
@@ -120,9 +125,18 @@ extension FirestoreManager {
         return try await signInUsingAuthenticationCredential(authCredential: authCredential)
     }
     
+    @discardableResult
+    func signInUsingAppleCredential(authResult: SignInWithAppleResult) async throws -> AuthDataResultModel {
+        let credential = OAuthProvider.appleCredential(withIDToken: authResult.token,
+                                                       rawNonce: authResult.nonce,
+                                                    fullName: authResult.fullName)
+        return try await signInUsingAuthenticationCredential(authCredential: credential)
+    }
+    
     func signInUsingAuthenticationCredential(authCredential: AuthCredential) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(with: authCredential)
         return AuthDataResultModel(user: authDataResult.user)
     }
     
 }
+/* FIRESTORE MANAGER CLASS END */

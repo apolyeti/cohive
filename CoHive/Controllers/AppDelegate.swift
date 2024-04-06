@@ -9,7 +9,7 @@ import UIKit
 import FirebaseCore
 import GoogleSignIn
 
-
+/* APP DELEGATE START */
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
@@ -27,3 +27,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 }
+/* APP DELEGATE END */

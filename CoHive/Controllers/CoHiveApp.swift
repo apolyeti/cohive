@@ -12,6 +12,7 @@ import FirebaseFirestore
 import GoogleSignIn
 
 
+/* MAIN COHIVE START */
 @main
 struct CoHiveApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
@@ -34,7 +35,7 @@ struct CoHiveApp: App {
     }()
     
     
-    
+    /* SHOW ROOT VIEW START */
     var body: some Scene {
         let customFont : Font = Font.custom("Josefin Sans", size: 20)
         WindowGroup {
@@ -47,5 +48,7 @@ struct CoHiveApp: App {
         }
         
     }
+    /* SHOW ROOT VIEW END */
 }
+/* MAIN COHIVE END */
 

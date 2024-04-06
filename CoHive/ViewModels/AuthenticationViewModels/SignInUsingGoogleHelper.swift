@@ -9,15 +9,19 @@ import Foundation
 import GoogleSignIn
 import GoogleSignInSwift
 
+/// This file stores extra functionality and code that we don't really need in our main file, just to keep things simplified.
+/// Any changes which must be made regarding Google authentication and user data when logging in should be handled here.
 
 struct GoogleSignInResultModel {
     let idToken: String
     let accessToken: String
-    let profile: GIDProfileData? // this isn't a token, but is information of the user that we would like to use later
+    
+    /* Note: GIDProfileData is not a token used for SSO authentication,
+     however is useful data for when user is in a valid session */
+    let profile: GIDProfileData?
 }
 
 final class SignInUsingGoogleHelper : ObservableObject {
-    
     @MainActor
     func signIn() async throws -> GoogleSignInResultModel {
         guard let topViewController = Utilities.shared.topViewController() else {

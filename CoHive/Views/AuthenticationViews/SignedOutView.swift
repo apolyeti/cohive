@@ -28,6 +28,10 @@ struct SignInWithAppleButtonViewRepresentable: UIViewRepresentable {
 
 
 struct SignedOutView: View {
+    /// The user should be shown this view when either
+    /// 1. Attempting to create a new Hive while not in a valid session
+    /// 2. They have just logged out of their account.
+
     @StateObject private var viewModel = SignedOutViewModel()
     @Binding var showSignInView: Bool
     
@@ -64,11 +68,23 @@ struct SignedOutView: View {
             .frame(height: 55)
             
             Button {
-                
+                Task {
+                    do {
+                        try await viewModel.signInApple()
+//                        showSignInView = false
+                    } catch {
+                        print(error)
+                    }
+                }
             } label: {
                 SignInWithAppleButtonViewRepresentable(type: .default, style: .black)
                     .allowsHitTesting(false)
-                    .frame(height: 55)
+            }
+            .frame(height: 55)
+            .onChange(of: viewModel.didSignInUsingApple) {
+                if viewModel.didSignInUsingApple {
+                    showSignInView = false
+                }
             }
                     
             Spacer()

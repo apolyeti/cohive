@@ -10,6 +10,7 @@ import Firebase
 import FirebaseAuth
 
 struct SignInUsingEmailView: View {
+    /// This view will be shown when a user decides to log in using their email provider, which requires a password as well.
     @StateObject private var viewModel = SignInUsingEmailViewModel()
     @Binding var showSignInView : Bool
     
