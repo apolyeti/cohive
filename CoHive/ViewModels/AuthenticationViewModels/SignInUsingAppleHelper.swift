@@ -15,6 +15,7 @@ struct SignInWithAppleResult {
     let token: String
     let nonce: String
     let fullName: PersonNameComponents?
+    let email: String?
 }
 
 struct SignInWithAppleButtonViewRepresentable: UIViewRepresentable {
@@ -138,7 +139,9 @@ extension SignInUsingAppleHelper: ASAuthorizationControllerDelegate {
             
             let result = SignInWithAppleResult(token: idTokenString,
                                                nonce: nonce,
-                                               fullName: appleIDCredential.fullName)
+                                               fullName: appleIDCredential.fullName,
+                                               email: appleIDCredential.email
+            )
             completionHandler?(.success(result))
 
         }
