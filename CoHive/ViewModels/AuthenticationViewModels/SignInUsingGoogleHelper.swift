@@ -1,5 +1,5 @@
 //
-//  GoogleHelper.swift
+//  SignInUsingGoogleHelper.swift
 //  CoHive
 //
 //  Created by Arveen Azhand on 4/3/24.

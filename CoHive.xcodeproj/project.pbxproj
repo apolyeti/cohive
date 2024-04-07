@@ -34,6 +34,7 @@
 		548290C02BBE2400002BD95D /* SignInUsingEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548290BF2BBE2400002BD95D /* SignInUsingEmailViewModel.swift */; };
 		548290C22BBE242B002BD95D /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548290C12BBE242B002BD95D /* SettingsViewModel.swift */; };
 		548290C62BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548290C52BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift */; };
+		548290C92BC2422C002BD95D /* SignInUsingAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548290C82BC2422C002BD95D /* SignInUsingAppleHelper.swift */; };
 		5487CA632BAEBD060070F6C3 /* CoHiveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487CA622BAEBD060070F6C3 /* CoHiveApp.swift */; };
 		5487CA652BAEBD060070F6C3 /* SignedOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487CA642BAEBD060070F6C3 /* SignedOutView.swift */; };
 		5487CA692BAEBD080070F6C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5487CA682BAEBD080070F6C3 /* Assets.xcassets */; };
@@ -96,6 +97,7 @@
 		548290C32BBE2D97002BD95D /* CoHive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoHive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		548290C52BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUsingGoogleHelper.swift; sourceTree = "<group>"; };
 		548290C72BBF710C002BD95D /* CoHive.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoHive.entitlements; sourceTree = "<group>"; };
+		548290C82BC2422C002BD95D /* SignInUsingAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUsingAppleHelper.swift; sourceTree = "<group>"; };
 		5487CA622BAEBD060070F6C3 /* CoHiveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoHiveApp.swift; sourceTree = "<group>"; };
 		5487CA642BAEBD060070F6C3 /* SignedOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedOutView.swift; sourceTree = "<group>"; };
 		5487CA682BAEBD080070F6C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				548290BF2BBE2400002BD95D /* SignInUsingEmailViewModel.swift */,
 				548290BD2BBE239D002BD95D /* SignedOutViewModel.swift */,
 				548290C52BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift */,
+				548290C82BC2422C002BD95D /* SignInUsingAppleHelper.swift */,
 			);
 			path = AuthenticationViewModels;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				545EC9EE2BB51C3B00143A64 /* Hive.swift in Sources */,
 				548290A72BB9224C002BD95D /* TempLoginOptionView.swift in Sources */,
 				548290C22BBE242B002BD95D /* SettingsViewModel.swift in Sources */,
+				548290C92BC2422C002BD95D /* SignInUsingAppleHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,22 +10,6 @@ import GoogleSignIn
 import GoogleSignInSwift
 import AuthenticationServices
 
-struct SignInWithAppleButtonViewRepresentable: UIViewRepresentable {
-    
-    let type: ASAuthorizationAppleIDButton.ButtonType
-    let style: ASAuthorizationAppleIDButton.Style
-    
-    func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
-        ASAuthorizationAppleIDButton(authorizationButtonType: type,
-                                            authorizationButtonStyle: style)
-    }
-    
-    func updateUIView(_ uiView: ASAuthorizationAppleIDButton, context: Context) {
-        
-    }
-    
-}
-
 
 struct SignedOutView: View {
     /// The user should be shown this view when either
@@ -71,7 +55,7 @@ struct SignedOutView: View {
                 Task {
                     do {
                         try await viewModel.signInApple()
-//                        showSignInView = false
+                        showSignInView = false
                     } catch {
                         print(error)
                     }
@@ -81,11 +65,6 @@ struct SignedOutView: View {
                     .allowsHitTesting(false)
             }
             .frame(height: 55)
-            .onChange(of: viewModel.didSignInUsingApple) {
-                if viewModel.didSignInUsingApple {
-                    showSignInView = false
-                }
-            }
                     
             Spacer()
         }
@@ -98,6 +77,5 @@ struct SignedOutView: View {
     NavigationStack {
         SignedOutView(showSignInView: .constant(false))
             .font(Font.custom("Josefin Sans", size: 15) )
-//            .environmentObject(FirestoreManager())
     }
 }
