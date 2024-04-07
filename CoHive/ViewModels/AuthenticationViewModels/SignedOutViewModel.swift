@@ -14,6 +14,7 @@ final class SignedOutViewModel : ObservableObject {
     
     /// ViewModel that handles authentication of the user.
     /// CoHive will be supporting email providers, Signing in with Google, and most importantly, signing in with Apple.
+
     let signInAppleHelper = SignInUsingAppleHelper()
     
     func signInGoogle() async throws {

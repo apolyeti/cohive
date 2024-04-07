@@ -11,8 +11,15 @@ import FirebaseFirestore
 import FirebaseAuth
 import Firebase
 
+/// Firestore's authentication functions will be handled here.
+/// Note: We do not grab necessary access and ID tokens necessary for credentials here. We obtain these values through the helpers we create for our
+/// View models. With the necessary information obtained in those files, we then pass those values into the functions defined here.
+
+
 /* AUTHDATARESULT MODEL START */
 struct AuthDataResultModel {
+    
+    // We use this custom made struct for retrieving data of the user at login time for later use.
     
     let uid: String
     let email: String?
@@ -39,6 +46,7 @@ enum AuthProviderOptions: String {
 /* FIRESTORE MANAGER CLASS START */
 class FirestoreManager: ObservableObject {
     /// All our Firestore logic will be handled here in this file.
+    /// NOTE: We need to create our custom errors for this.
     static let shared = FirestoreManager()
     private init() {}
     

@@ -10,7 +10,9 @@ import FirebaseAuth
 
 @MainActor
 final class SignInUsingEmailViewModel : ObservableObject {
+    
     /// ViewModel for email providers. Authenticates through Firebase.
+    
     @Published var email = ""
     @Published var password = ""
     

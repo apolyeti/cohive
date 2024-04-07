@@ -11,13 +11,16 @@ import UIKit
 import AuthenticationServices
 import CryptoKit
 
+/* SignInWithAppleResult START */
 struct SignInWithAppleResult {
     let token: String
     let nonce: String
     let fullName: PersonNameComponents?
     let email: String?
 }
+/* SignInWithAppleResult END */
 
+/* SignInWithAppleButtonViewRepresentable START */
 struct SignInWithAppleButtonViewRepresentable: UIViewRepresentable {
     
     let type: ASAuthorizationAppleIDButton.ButtonType
@@ -33,9 +36,15 @@ struct SignInWithAppleButtonViewRepresentable: UIViewRepresentable {
     }
     
 }
+/* SignInWithAppleButtonViewRepresentable END */
 
+/* SignInUsingAppleHelper Class START */
 @MainActor
 final class SignInUsingAppleHelper: NSObject {
+    
+    /// This helper should be just about reusable for most future Swift iOS projects using Firestore.
+    /// This will be used by the SignedOutViewModel for Apple SSO authentication
+    /// Should grab the user's full name, email, and other necessary data required for authentication. Otherwise, throw an error.
     
     private var currentNonce: String?
     private var completionHandler: ((Result<SignInWithAppleResult, Error>) -> Void)? = nil
@@ -108,20 +117,25 @@ final class SignInUsingAppleHelper: NSObject {
         return hashString
     }
 }
+/* SignInUsingAppleHelper Class END */
 
+/* UIViewController Extension START */
 extension UIViewController: ASAuthorizationControllerPresentationContextProviding {
+    /// We need this for the modal that appears when attempting to login using Apple.
     public func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!
     }
 }
+/* SignInUsingAppleHelper Extension END */
 
-
+/* SignInUsingAppleHelper Extension START */
 @available(iOS 13.0, *)
 extension SignInUsingAppleHelper: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController,
                                  didCompleteWithAuthorization authorization: ASAuthorization) {
         if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+            // NOTE: We need to create our custom errors for this.
             guard let nonce = currentNonce else {
                 completionHandler?(.failure(URLError(.badServerResponse)))
                 fatalError("Invalid state: A login callback was received, but no login request was sent.")
@@ -153,3 +167,4 @@ extension SignInUsingAppleHelper: ASAuthorizationControllerDelegate {
     }
     
 }
+/* SignInUsingAppleHelper Extension END */
