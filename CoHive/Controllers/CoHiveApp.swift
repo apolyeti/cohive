@@ -8,24 +8,25 @@
 import SwiftUI
 import SwiftData
 import Firebase
+import FirebaseFirestore
+import GoogleSignIn
 
+
+/* MAIN COHIVE START */
 @main
 struct CoHiveApp: App {
-    @StateObject var firestoreManager = FirestoreManager()
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    init() {
-        FirebaseApp.configure()
-    }
     var sharedModelContainer: ModelContainer = {
         // (Hovhannes) temporarily changed referenced schema field to User to prevent error
+        // (Arveen) temporarily cleared Schemas due to repetitive references to User (both our code and Google's)
         let schema = Schema([
-//            Item.self,
-            User.self,
-            Hive.self,
-            Chore.self
+            //            User.self,
+            //            Hive.self,
+            //            Chore.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
+        
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
@@ -33,16 +34,21 @@ struct CoHiveApp: App {
         }
     }()
     
-
     
+    /* SHOW ROOT VIEW START */
     var body: some Scene {
         let customFont : Font = Font.custom("Josefin Sans", size: 20)
         WindowGroup {
-            SignedOutView()
-                .font(customFont)
+            NavigationStack {
+                RootView()
+                    .font(customFont)
+            }
+            .modelContainer(sharedModelContainer)
+            //        .environmentObject(firestoreManager)
         }
-        .modelContainer(sharedModelContainer)
-        .environmentObject(firestoreManager)
+        
     }
-    
+    /* SHOW ROOT VIEW END */
 }
+/* MAIN COHIVE END */
+

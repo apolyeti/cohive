@@ -6,38 +6,76 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
+import AuthenticationServices
+
 
 struct SignedOutView: View {
-    @EnvironmentObject var firestoreManager: FirestoreManager
+    /// The user should be shown this view when either
+    /// 1. Attempting to create a new Hive while not in a valid session
+    /// 2. They have just logged out of their account.
+
+    @StateObject private var viewModel = SignedOutViewModel()
+    @Binding var showSignInView: Bool
+    
     let accent : Color = Color("AccentColor")
     var body: some View {
-        ZStack {
-            Color("BackgroundColor")
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            VStack {
-                Spacer()
-                Text("hive found: \(firestoreManager.hive)")
-                        .padding()
-                Image("CoHiveLogo")
-                Spacer()
-                LoginOptionView(label: "Sign in using Google") {
-                    print("test0")
-                }
-                LoginOptionView(label: "Register your own account") {
-                    print("test1")
-                }
-                LoginOptionView(label: "Returning user? Login here") {
-                    print("test2")
-                }
-                Spacer()
+        VStack {
+            NavigationLink {
+                SignInUsingEmailView(showSignInView: $showSignInView)
+            } label: {
+                Text("Sign in using email")
+                    .padding()
+                    .frame(width: 400, height: 55)
+                    .background(content: {
+                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+                            .foregroundStyle(Color("BackgroundColor"))
+                    })
             }
+            
+            GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(
+                                scheme: .dark,
+                                style: .standard,
+                                state: .normal))
+            {
+                Task {
+                    do {
+                        try await viewModel.signInGoogle()
+                        showSignInView = false
+                    } catch {
+                        print(error)
+                    }
+                }
+            }
+            .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
+            .frame(height: 55)
+            
+            Button {
+                Task {
+                    do {
+                        try await viewModel.signInApple()
+                        showSignInView = false
+                    } catch {
+                        print(error)
+                    }
+                }
+            } label: {
+                SignInWithAppleButtonViewRepresentable(type: .default, style: .black)
+                    .allowsHitTesting(false)
+            }
+            .frame(height: 55)
+                    
+            Spacer()
         }
+        .navigationTitle("Sign in")
     }
 }
 
 
 #Preview {
-    SignedOutView()
-        .font(Font.custom("Josefin Sans", size: 15))
-        .environmentObject(FirestoreManager())
+    NavigationStack {
+        SignedOutView(showSignInView: .constant(false))
+            .font(Font.custom("Josefin Sans", size: 15) )
+    }
 }
