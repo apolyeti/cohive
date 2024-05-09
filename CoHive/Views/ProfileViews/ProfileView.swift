@@ -15,11 +15,16 @@ struct ProfileView: View {
     var body: some View {
         List {
             if let user = viewModel.user {
-                Text("UserId: \(user.uid)")
+                Text("UserId: \(user.userId)")
             }
+            
+            if let email = viewModel.user?.email {
+                Text("Email: \(email)")
+            }
+        
         }
-        .onAppear {
-            try? viewModel.loadCurrentUser()
+        .task {
+            try? await viewModel.loadCurrentUser()
         }
         .navigationTitle("Profile")
         .toolbar {

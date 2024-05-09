@@ -12,6 +12,8 @@
 		541C9EEB2BEB2C26009D2E83 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 541C9EEA2BEB2C26009D2E83 /* FirebaseFirestoreSwift */; };
 		541C9EEF2BEC7240009D2E83 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C9EEE2BEC7240009D2E83 /* ProfileView.swift */; };
 		541C9EF22BEC736A009D2E83 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C9EF12BEC736A009D2E83 /* ProfileViewModel.swift */; };
+		541C9EF42BEC92A1009D2E83 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C9EF32BEC92A1009D2E83 /* UserManager.swift */; };
+		541C9EF62BECA051009D2E83 /* CoHiveUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C9EF52BECA051009D2E83 /* CoHiveUser.swift */; };
 		5444C32E2BB6746400836F33 /* NoGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C32D2BB6746400836F33 /* NoGroupView.swift */; };
 		5444C3302BB674A700836F33 /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C32F2BB674A700836F33 /* CreateGroupView.swift */; };
 		5444C3322BB674FA00836F33 /* JoinGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3312BB674FA00836F33 /* JoinGroupView.swift */; };
@@ -21,7 +23,6 @@
 		5444C33C2BB6776800836F33 /* GroupDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C33B2BB6776700836F33 /* GroupDelete.swift */; };
 		5444C33F2BB6780900836F33 /* AddUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C33E2BB6780900836F33 /* AddUser.swift */; };
 		5444C3412BB6782900836F33 /* RemoveUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3402BB6782900836F33 /* RemoveUser.swift */; };
-		545EC9EC2BB5193200143A64 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC9EB2BB5193200143A64 /* User.swift */; };
 		545EC9EE2BB51C3B00143A64 /* Hive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC9ED2BB51C3B00143A64 /* Hive.swift */; };
 		545EC9F02BB51D0A00143A64 /* Chore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545EC9EF2BB51D0A00143A64 /* Chore.swift */; };
 		548290A72BB9224C002BD95D /* TempLoginOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548290A62BB9224C002BD95D /* TempLoginOptionView.swift */; };
@@ -79,6 +80,8 @@
 		541C9EE82BEAE8F8009D2E83 /* CoHiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoHiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		541C9EEE2BEC7240009D2E83 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		541C9EF12BEC736A009D2E83 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		541C9EF32BEC92A1009D2E83 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		541C9EF52BECA051009D2E83 /* CoHiveUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoHiveUser.swift; sourceTree = "<group>"; };
 		5444C32D2BB6746400836F33 /* NoGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoGroupView.swift; sourceTree = "<group>"; };
 		5444C32F2BB674A700836F33 /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
 		5444C3312BB674FA00836F33 /* JoinGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupView.swift; sourceTree = "<group>"; };
@@ -88,7 +91,6 @@
 		5444C33B2BB6776700836F33 /* GroupDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDelete.swift; sourceTree = "<group>"; };
 		5444C33E2BB6780900836F33 /* AddUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUser.swift; sourceTree = "<group>"; };
 		5444C3402BB6782900836F33 /* RemoveUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveUser.swift; sourceTree = "<group>"; };
-		545EC9EB2BB5193200143A64 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		545EC9ED2BB51C3B00143A64 /* Hive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hive.swift; sourceTree = "<group>"; };
 		545EC9EF2BB51D0A00143A64 /* Chore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chore.swift; sourceTree = "<group>"; };
 		548290A62BB9224C002BD95D /* TempLoginOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempLoginOptionView.swift; sourceTree = "<group>"; };
@@ -260,22 +262,23 @@
 		545EC9E92BB5182600143A64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				545EC9EB2BB5193200143A64 /* User.swift */,
 				545EC9ED2BB51C3B00143A64 /* Hive.swift */,
 				545EC9EF2BB51D0A00143A64 /* Chore.swift */,
+				541C9EF52BECA051009D2E83 /* CoHiveUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		545EC9EA2BB5182E00143A64 /* Controllers */ = {
+		545EC9EA2BB5182E00143A64 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				5444C3372BB676D700836F33 /* Groups */,
 				5487CA622BAEBD060070F6C3 /* CoHiveApp.swift */,
 				2E58762F2BB7F16D00277551 /* FirestoreManager.swift */,
 				548290B02BBBB4D9002BD95D /* AppDelegate.swift */,
+				541C9EF32BEC92A1009D2E83 /* UserManager.swift */,
 			);
-			path = Controllers;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		548290AD2BBBAF1E002BD95D /* Utils */ = {
@@ -331,7 +334,7 @@
 				548290BC2BBE237D002BD95D /* ViewModels */,
 				548290AD2BBBAF1E002BD95D /* Utils */,
 				54E0A2022BB53A16002009B0 /* Resources */,
-				545EC9EA2BB5182E00143A64 /* Controllers */,
+				545EC9EA2BB5182E00143A64 /* Managers */,
 				545EC9E92BB5182600143A64 /* Models */,
 				545EC9E82BB517FC00143A64 /* Views */,
 				5487CA6A2BAEBD080070F6C3 /* Preview Content */,
@@ -547,14 +550,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				545EC9EC2BB5193200143A64 /* User.swift in Sources */,
 				548290B52BBC9158002BD95D /* SettingsView.swift in Sources */,
 				5444C33C2BB6776800836F33 /* GroupDelete.swift in Sources */,
 				54C0CA9F2BB54D5E00E9267A /* LoginOptionView.swift in Sources */,
 				5444C3302BB674A700836F33 /* CreateGroupView.swift in Sources */,
 				5444C3362BB6763C00836F33 /* InviteUserView.swift in Sources */,
+				541C9EF42BEC92A1009D2E83 /* UserManager.swift in Sources */,
 				548290BE2BBE239D002BD95D /* SignedOutViewModel.swift in Sources */,
 				5444C32E2BB6746400836F33 /* NoGroupView.swift in Sources */,
+				541C9EF62BECA051009D2E83 /* CoHiveUser.swift in Sources */,
 				5487CA652BAEBD060070F6C3 /* SignedOutView.swift in Sources */,
 				548290B92BBE211D002BD95D /* GIDSignInButton.swift in Sources */,
 				548290C62BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift in Sources */,
