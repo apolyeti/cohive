@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		2E5876302BB7F16D00277551 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58762F2BB7F16D00277551 /* FirestoreManager.swift */; };
 		2E5876342BB7F1C300277551 /* SignInUsingEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5876332BB7F1C200277551 /* SignInUsingEmailView.swift */; };
+		541C9EEB2BEB2C26009D2E83 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 541C9EEA2BEB2C26009D2E83 /* FirebaseFirestoreSwift */; };
+		541C9EEF2BEC7240009D2E83 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C9EEE2BEC7240009D2E83 /* ProfileView.swift */; };
+		541C9EF22BEC736A009D2E83 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C9EF12BEC736A009D2E83 /* ProfileViewModel.swift */; };
 		5444C32E2BB6746400836F33 /* NoGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C32D2BB6746400836F33 /* NoGroupView.swift */; };
 		5444C3302BB674A700836F33 /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C32F2BB674A700836F33 /* CreateGroupView.swift */; };
 		5444C3322BB674FA00836F33 /* JoinGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3312BB674FA00836F33 /* JoinGroupView.swift */; };
@@ -72,6 +75,10 @@
 /* Begin PBXFileReference section */
 		2E58762F2BB7F16D00277551 /* FirestoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		2E5876332BB7F1C200277551 /* SignInUsingEmailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInUsingEmailView.swift; sourceTree = "<group>"; };
+		541C9EE72BEAE8F8009D2E83 /* CoHiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoHiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		541C9EE82BEAE8F8009D2E83 /* CoHiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoHiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		541C9EEE2BEC7240009D2E83 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		541C9EF12BEC736A009D2E83 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5444C32D2BB6746400836F33 /* NoGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoGroupView.swift; sourceTree = "<group>"; };
 		5444C32F2BB674A700836F33 /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
 		5444C3312BB674FA00836F33 /* JoinGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupView.swift; sourceTree = "<group>"; };
@@ -102,9 +109,7 @@
 		5487CA642BAEBD060070F6C3 /* SignedOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedOutView.swift; sourceTree = "<group>"; };
 		5487CA682BAEBD080070F6C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5487CA6B2BAEBD080070F6C3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5487CA712BAEBD080070F6C3 /* CoHiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CoHiveTests.xctest; path = "/Users/arveenazhand/Documents/repos/CoHive/CoHive/build/Debug-iphoneos/CoHiveTests.xctest"; sourceTree = "<absolute>"; };
 		5487CA752BAEBD080070F6C3 /* CoHiveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoHiveTests.swift; sourceTree = "<group>"; };
-		5487CA7B2BAEBD080070F6C3 /* CoHiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = CoHiveUITests.xctest; path = "/Users/arveenazhand/Documents/repos/CoHive/CoHive/build/Debug-iphoneos/CoHiveUITests.xctest"; sourceTree = "<absolute>"; };
 		5487CA7F2BAEBD080070F6C3 /* CoHiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoHiveUITests.swift; sourceTree = "<group>"; };
 		5487CA812BAEBD080070F6C3 /* CoHiveUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoHiveUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5490890D2BB043EB004327AD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -122,6 +127,7 @@
 				548290AA2BBA2114002BD95D /* GoogleSignIn in Frameworks */,
 				54F5781A2BB90E28009683F5 /* FirebaseAnalyticsSwift in Frameworks */,
 				54A7C1CB2BB90B3B00DCD200 /* FirebaseAnalytics in Frameworks */,
+				541C9EEB2BEB2C26009D2E83 /* FirebaseFirestoreSwift in Frameworks */,
 				548290AC2BBA2114002BD95D /* GoogleSignInSwift in Frameworks */,
 				54F5781D2BB90E9F009683F5 /* FirebaseFirestore in Frameworks */,
 				54F578212BB90F28009683F5 /* FirebaseAuth in Frameworks */,
@@ -145,6 +151,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		541C9EE92BEB2C26009D2E83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		541C9EEC2BEC6FF8009D2E83 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				548290B22BBC8B4C002BD95D /* RootView.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		541C9EED2BEC7235009D2E83 /* ProfileViews */ = {
+			isa = PBXGroup;
+			children = (
+				541C9EEE2BEC7240009D2E83 /* ProfileView.swift */,
+			);
+			path = ProfileViews;
+			sourceTree = "<group>";
+		};
+		541C9EF02BEC735C009D2E83 /* ProfileViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				541C9EF12BEC736A009D2E83 /* ProfileViewModel.swift */,
+			);
+			path = ProfileViewModels;
+			sourceTree = "<group>";
+		};
 		5444C3292BB62B1B00836F33 /* SessionViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,9 +250,9 @@
 		545EC9E82BB517FC00143A64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				541C9EED2BEC7235009D2E83 /* ProfileViews */,
 				5444C3292BB62B1B00836F33 /* SessionViews */,
 				54E0A1FE2BB53981002009B0 /* AuthenticationViews */,
-				548290B22BBC8B4C002BD95D /* RootView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,6 +289,7 @@
 		548290BC2BBE237D002BD95D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				541C9EF02BEC735C009D2E83 /* ProfileViewModels */,
 				548290C42BBE2F9F002BD95D /* AuthenticationViewModels */,
 				548290C12BBE242B002BD95D /* SettingsViewModel.swift */,
 			);
@@ -278,12 +316,16 @@
 				5487CA742BAEBD080070F6C3 /* CoHiveTests */,
 				5487CA7E2BAEBD080070F6C3 /* CoHiveUITests */,
 				548290C32BBE2D97002BD95D /* CoHive.app */,
+				541C9EE72BEAE8F8009D2E83 /* CoHiveTests.xctest */,
+				541C9EE82BEAE8F8009D2E83 /* CoHiveUITests.xctest */,
+				541C9EE92BEB2C26009D2E83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		5487CA612BAEBD060070F6C3 /* CoHive */ = {
 			isa = PBXGroup;
 			children = (
+				541C9EEC2BEC6FF8009D2E83 /* Core */,
 				548290C72BBF710C002BD95D /* CoHive.entitlements */,
 				54C0CA9D2BB53DED00E9267A /* Info.plist */,
 				548290BC2BBE237D002BD95D /* ViewModels */,
@@ -382,6 +424,7 @@
 				54F578202BB90F28009683F5 /* FirebaseAuth */,
 				548290A92BBA2114002BD95D /* GoogleSignIn */,
 				548290AB2BBA2114002BD95D /* GoogleSignInSwift */,
+				541C9EEA2BEB2C26009D2E83 /* FirebaseFirestoreSwift */,
 			);
 			productName = CoHive;
 			productReference = 548290C32BBE2D97002BD95D /* CoHive.app */;
@@ -402,7 +445,7 @@
 			);
 			name = CoHiveTests;
 			productName = CoHiveTests;
-			productReference = 5487CA712BAEBD080070F6C3 /* CoHiveTests.xctest */;
+			productReference = 541C9EE72BEAE8F8009D2E83 /* CoHiveTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5487CA7A2BAEBD080070F6C3 /* CoHiveUITests */ = {
@@ -420,7 +463,7 @@
 			);
 			name = CoHiveUITests;
 			productName = CoHiveUITests;
-			productReference = 5487CA7B2BAEBD080070F6C3 /* CoHiveUITests.xctest */;
+			productReference = 541C9EE82BEAE8F8009D2E83 /* CoHiveUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -516,6 +559,7 @@
 				548290B92BBE211D002BD95D /* GIDSignInButton.swift in Sources */,
 				548290C62BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift in Sources */,
 				545EC9F02BB51D0A00143A64 /* Chore.swift in Sources */,
+				541C9EF22BEC736A009D2E83 /* ProfileViewModel.swift in Sources */,
 				5444C3342BB675DB00836F33 /* GroupDashboardView.swift in Sources */,
 				548290C02BBE2400002BD95D /* SignInUsingEmailViewModel.swift in Sources */,
 				2E5876302BB7F16D00277551 /* FirestoreManager.swift in Sources */,
@@ -526,6 +570,7 @@
 				5444C3322BB674FA00836F33 /* JoinGroupView.swift in Sources */,
 				5444C33A2BB6771E00836F33 /* GroupCreate.swift in Sources */,
 				548290AF2BBBAF29002BD95D /* Utils.swift in Sources */,
+				541C9EEF2BEC7240009D2E83 /* ProfileView.swift in Sources */,
 				5444C3412BB6782900836F33 /* RemoveUser.swift in Sources */,
 				5487CA632BAEBD060070F6C3 /* CoHiveApp.swift in Sources */,
 				548290B12BBBB4D9002BD95D /* AppDelegate.swift in Sources */,
@@ -891,6 +936,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		541C9EEA2BEB2C26009D2E83 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 54A7C1C92BB90B3B00DCD200 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		548290A92BBA2114002BD95D /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 548290A82BBA2114002BD95D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
