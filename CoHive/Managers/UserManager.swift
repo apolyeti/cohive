@@ -30,39 +30,43 @@ final class UserManager {
         try userDocument(userId: user.userId).setData(from: user, merge: false, encoder: encoder)
     }
     
-    func createNewUser(auth: AuthDataResultModel) async throws {
-        var userData : [String : Any] = [
-            "user_id": auth.uid,
-            "date_created" : Timestamp(),
-            "email": auth.email ?? "",
-            
-        ]
-        if let email = auth.email {
-            userData["email"] = email
-        }
-        
-        if let photoUrl = auth.photoUrl {
-            userData["photo_url"] = photoUrl
-        }
-        
-        try await userDocument(userId: auth.uid).setData(userData, merge: false)
-        
-    }
+//    func createNewUser(auth: AuthDataResultModel) async throws {
+//        var userData : [String : Any] = [
+//            "user_id": auth.uid,
+//            "date_created" : Timestamp(),
+//            "email": auth.email ?? "",
+//            
+//        ]
+//        if let email = auth.email {
+//            userData["email"] = email
+//        }
+//        
+//        if let photoUrl = auth.photoUrl {
+//            userData["photo_url"] = photoUrl
+//        }
+//        
+//        try await userDocument(userId: auth.uid).setData(userData, merge: false)
+//        
+//    }
     
     func getUser(userId: String) async throws -> CoHiveUser {
-        let snapshot : DocumentSnapshot = try await userDocument(userId: userId).getDocument()
-        
-        guard let data = snapshot.data(), let userId = data["user_id"] as? String else {
-            throw URLError(.badServerResponse)
-        }
-        
-        
-        let email = data["email"] as? String
-        let photoUrl = data["photo_url"] as? String
-        let dateCreated = data["date_created"] as? Date
-        
-        return CoHiveUser(userId: userId, email: email, photoUrl: photoUrl, dateCreated: dateCreated)
-        
+        try await userDocument(userId: userId).getDocument(as: CoHiveUser.self)
     }
+    
+//    func getUser(userId: String) async throws -> CoHiveUser {
+//        let snapshot : DocumentSnapshot = try await userDocument(userId: userId).getDocument()
+//        
+//        guard let data = snapshot.data(), let userId = data["user_id"] as? String else {
+//            throw URLError(.badServerResponse)
+//        }
+//        
+//        
+//        let email = data["email"] as? String
+//        let photoUrl = data["photo_url"] as? String
+//        let dateCreated = data["date_created"] as? Date
+//        
+//        return CoHiveUser(userId: userId, email: email, photoUrl: photoUrl, dateCreated: dateCreated)
+//        
+//    }
     
 }

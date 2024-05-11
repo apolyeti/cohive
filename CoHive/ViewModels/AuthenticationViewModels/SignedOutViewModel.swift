@@ -21,7 +21,8 @@ final class SignedOutViewModel : ObservableObject {
         let GoogleSignIn = SignInUsingGoogleHelper()
         let tokens = try await GoogleSignIn.signIn()
         let authDataResult = try await FirestoreManager.shared.signInUsingGoogleCredential(tokens: tokens)
-        try await UserManager.shared.createNewUser(auth: authDataResult)
+        let user = CoHiveUser(userId: authDataResult.uid, email: authDataResult.email, photoUrl: authDataResult.photoUrl, dateCreated: Date())
+        try await UserManager.shared.createNewUser(user: user)
     }
     
     func signInApple() async throws {
@@ -29,7 +30,9 @@ final class SignedOutViewModel : ObservableObject {
         // Note: this is different than the property of the view model
         let result = try await signInAppleHelper.startSignInWithAppleFlow()
         let authDataResult = try await FirestoreManager.shared.signInUsingAppleCredential(authResult: result)
-        try await UserManager.shared.createNewUser(auth: authDataResult)
+//        try await UserManager.shared.createNewUser(auth: authDataResult)
+        let user = CoHiveUser(userId: authDataResult.uid, email: authDataResult.email, photoUrl: authDataResult.photoUrl, dateCreated: Date())
+        try await UserManager.shared.createNewUser(user: user)
     }
     
 }
