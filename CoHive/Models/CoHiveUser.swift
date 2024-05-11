@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CoHiveUser {
+struct CoHiveUser : Codable {
     
     let userId : String
     let email : String?
