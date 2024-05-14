@@ -14,4 +14,11 @@ struct CoHiveUser : Codable {
     let photoUrl : String?
     let dateCreated : Date?
     
+    init(auth: AuthDataResultModel) {
+        userId = auth.uid
+        email = auth.email
+        photoUrl = auth.photoUrl
+        dateCreated = Date()
+    }
+    
 }

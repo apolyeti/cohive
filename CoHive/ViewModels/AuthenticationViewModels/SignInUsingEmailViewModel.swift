@@ -23,10 +23,7 @@ final class SignInUsingEmailViewModel : ObservableObject {
         }
        
         let authDataResult = try await FirestoreManager.shared.createUser(email: email, password: password)
-        let user = CoHiveUser(userId: authDataResult.uid,
-                              email: authDataResult.email,
-                              photoUrl: authDataResult.photoUrl,
-                              dateCreated: Date())
+        let user = CoHiveUser(auth: authDataResult)
         try await UserManager.shared.createNewUser(user: user)
         
     }
