@@ -26,6 +26,12 @@ final class UserManager {
         return encoder
     }()
     
+    private let decoder: Firestore.Decoder = {
+        let decoder = Firestore.Decoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
+    }()
+    
     func createNewUser(user: CoHiveUser) async throws {
         try userDocument(userId: user.userId).setData(from: user, merge: false, encoder: encoder)
     }
@@ -50,7 +56,7 @@ final class UserManager {
 //    }
     
     func getUser(userId: String) async throws -> CoHiveUser {
-        try await userDocument(userId: userId).getDocument(as: CoHiveUser.self)
+        try await userDocument(userId: userId).getDocument(as: CoHiveUser.self, decoder: decoder)
     }
     
 //    func getUser(userId: String) async throws -> CoHiveUser {
