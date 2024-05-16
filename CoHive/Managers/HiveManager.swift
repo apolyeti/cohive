@@ -42,6 +42,10 @@ final class HiveManager {
         try await hiveDocument(hiveId: hiveId).getDocument(as: Hive.self, decoder: decoder)
     }
     
+    func generateId()-> String {
+        return hiveCollection.document().documentID
+    }
+    
     
 }
 /* HIVEMANAGER END */

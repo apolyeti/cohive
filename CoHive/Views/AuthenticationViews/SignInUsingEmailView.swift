@@ -21,12 +21,12 @@ struct SignInUsingEmailView: View {
                 
                 TextField("Email:", text: $viewModel.email)
                     .padding()
-                    .background(Color.gray)
+                    .background(Color.white)
                     .cornerRadius(10)
                 
                 SecureField("Password:", text: $viewModel.password)
                     .padding()
-                    .background(Color.gray)
+                    .background(Color.white)
                     .cornerRadius(10)
                 
                 Button {
@@ -51,8 +51,8 @@ struct SignInUsingEmailView: View {
                     Text("Sign in")
                         .font(.headline)
                         .foregroundColor(Color("AccentColor"))
-                        .frame(height:55)
-                        .background(Color.blue)
+                        .frame(width:300, height: 55)
+                        .background(Color("ButtonColor"))
                         .cornerRadius(10)
                 }
                 

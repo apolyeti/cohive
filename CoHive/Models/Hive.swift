@@ -18,12 +18,12 @@ struct Hive : Codable {
     var users: [CoHiveUser]
     
     // any updates or changes make sure to include in here as well.
-    init(id: String,
+    init(
          name: String,
          chores: [Chore],
          users: [CoHiveUser])
     {
-        self.hiveId = id
+        self.hiveId = HiveManager.shared.generateId()
         self.name = name
         self.chores = chores
         self.users = users
