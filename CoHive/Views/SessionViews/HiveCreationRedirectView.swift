@@ -18,6 +18,10 @@ struct HiveCreationRedirectView: View {
                 NavigationStack {
                     CreateHiveView(hiveCreated: $hiveCreated)
                 }
+            } else {
+                NavigationStack {
+                    HiveView()
+                }
             }
         }
     }
