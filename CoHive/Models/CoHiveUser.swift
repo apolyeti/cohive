@@ -27,5 +27,13 @@ struct CoHiveUser : Codable {
         hive = Hive(name: "", chores: [], users: [])
     }
     
+    init(user: CoHiveUser, hive: Hive) {
+        userId = user.userId
+        email = user.email
+        photoUrl = user.photoUrl
+        dateCreated = user.dateCreated
+        self.hive = hive
+    }
+    
 }
 /* COHIVEUSER END */

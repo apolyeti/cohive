@@ -67,12 +67,24 @@ final class UserManager {
     
     func updateUserHive(userId: String, hiveId: String) async throws {
         
+//        do {
+//            let hive = try await HiveManager.shared.getHive(hiveId: hiveId)
+//            let data: [String: Any] = [
+//                "hive": hive
+//            ]
+//            try await userDocument(userId: userId).updateData(data)
+//            print("User \(userId) successfully bound to hive \(hiveId)")
+//        } catch {
+//            print(error)
+//        }
+        
+        // screw this bruh
         do {
             let hive = try await HiveManager.shared.getHive(hiveId: hiveId)
-            let data: [String: Any] = [
-                "hive": hive
-            ]
-            try await userDocument(userId: userId).updateData(data)
+            let oldUser = try await getUser(userId: userId)
+            let newUser = CoHiveUser(user: oldUser, hive: hive)
+            
+            try userDocument(userId: userId).setData(from: newUser, merge: false, encoder: encoder)
             print("User \(userId) successfully bound to hive \(hiveId)")
         } catch {
             print(error)
