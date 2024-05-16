@@ -7,12 +7,34 @@
 
 import SwiftUI
 
+@MainActor
+final class CreateHiveViewModel : ObservableObject {
+    @Published var hiveName = ""
+    @Published var Users : [CoHiveUser] = []
+    @Published var Chores : [Chore] = []
+    
+    func createNewHive() {
+        
+    }
+
+}
+
 struct CreateHiveView: View {
+    @StateObject private var viewModel = CreateHiveViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Create a new Hive")
+            TextField("Hive Name", text:$viewModel.hiveName)
+            
+            
+            
+        }
     }
 }
 
 #Preview {
-    CreateHiveView()
+    NavigationStack {
+        CreateHiveView()
+    }
 }

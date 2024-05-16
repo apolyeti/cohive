@@ -159,4 +159,5 @@ extension FirestoreManager {
     }
     
 }
+
 /* FIRESTORE MANAGER CLASS END */

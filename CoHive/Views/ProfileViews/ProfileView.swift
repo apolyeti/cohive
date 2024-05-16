@@ -21,6 +21,9 @@ struct ProfileView: View {
             if let email = viewModel.user?.email {
                 Text("Email: \(email)")
             }
+//            NavigationLink {
+//                CreateHiveView()
+//            }
         
         }
         .task {

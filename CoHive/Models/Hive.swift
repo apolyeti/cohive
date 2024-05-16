@@ -11,19 +11,19 @@ import SwiftData
 
 struct Hive : Codable {
     // make sure these fields are the exact same as the ones shown on the database.
-    var id: Int
+    var hiveId: String
     var name: String
 //    var users: [User]
     var chores: [Chore]
     var users: [CoHiveUser]
     
     // any updates or changes make sure to include in here as well.
-    init(id: Int, 
+    init(id: String,
          name: String,
          chores: [Chore],
          users: [CoHiveUser])
     {
-        self.id = id
+        self.hiveId = id
         self.name = name
         self.chores = chores
         self.users = users

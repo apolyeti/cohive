@@ -16,7 +16,7 @@ struct SignInUsingEmailView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor")
+            Color("BackgroundColor").ignoresSafeArea()
             VStack {
                 
                 TextField("Email:", text: $viewModel.email)
