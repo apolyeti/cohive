@@ -44,6 +44,7 @@ final class CreateHiveViewModel : ObservableObject {
 
 struct CreateHiveView: View {
     @StateObject private var viewModel = CreateHiveViewModel()
+    @Binding var hiveCreated: Bool
     
     var body: some View {
         ZStack {
@@ -62,8 +63,12 @@ struct CreateHiveView: View {
                     Task {
                         do {
                             try await viewModel.createNewHive()
+                            hiveCreated = true
+                        } catch {
+                            print(error)
                         }
                     }
+                    
                 } label: {
                     Text("Create new hive")
                         .padding()
@@ -80,6 +85,6 @@ struct CreateHiveView: View {
 
 #Preview {
     NavigationStack {
-        CreateHiveView()
+        CreateHiveView(hiveCreated: .constant(false))
     }
 }

@@ -65,6 +65,20 @@ final class UserManager {
         try await userDocument(userId: userId).getDocument(as: CoHiveUser.self, decoder: decoder)
     }
     
+    func updateUserHive(userId: String, hiveId: String) async throws {
+        
+        do {
+            let hive = try await HiveManager.shared.getHive(hiveId: hiveId)
+            let data: [String: Any] = [
+                "hive": hive
+            ]
+            try await userDocument(userId: userId).updateData(data)
+            print("User \(userId) successfully bound to hive \(hiveId)")
+        } catch {
+            print(error)
+        }
+    }
+    
 //    func getUser(userId: String) async throws -> CoHiveUser {
 //        let snapshot : DocumentSnapshot = try await userDocument(userId: userId).getDocument()
 //        

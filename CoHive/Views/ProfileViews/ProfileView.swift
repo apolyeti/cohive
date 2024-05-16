@@ -11,6 +11,7 @@ struct ProfileView: View {
         
     @StateObject private var viewModel = ProfileViewModel()
     @Binding var showSignInView: Bool
+    @State private var reloadProfile = false
     
     var body: some View {
         List {
@@ -24,6 +25,27 @@ struct ProfileView: View {
 //            NavigationLink {
 //                CreateHiveView()
 //            }
+            if let hive = viewModel.user?.hive {
+                if hive.name != "" {
+                    NavigationLink {
+                        HiveView()
+                    } label: {
+                        Text(hive.name)
+                    }
+                } else {
+                    NavigationLink {
+                        HiveCreationRedirectView()
+                    } label: {
+                        Text("Create a new hive")
+                    }
+                }
+            } else {
+                NavigationLink {
+                    HiveCreationRedirectView()
+                } label: {
+                    Text("Create a new hive")
+                }
+            }
         
         }
         .task {
@@ -39,6 +61,9 @@ struct ProfileView: View {
                         .font(.headline)
                 }
             }
+        }
+        .onAppear {
+            reloadProfile.toggle()
         }
             
     }

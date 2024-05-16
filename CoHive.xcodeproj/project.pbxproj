@@ -52,6 +52,7 @@
 		54EC2C592BF5CADF008018C0 /* CreateHiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC2C582BF5CADF008018C0 /* CreateHiveView.swift */; };
 		54EC2C5B2BF5CE12008018C0 /* HiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC2C5A2BF5CE12008018C0 /* HiveView.swift */; };
 		54EC2C5D2BF5CFF8008018C0 /* HiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC2C5C2BF5CFF8008018C0 /* HiveManager.swift */; };
+		54EC2C5F2BF5DA42008018C0 /* HiveCreationRedirectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC2C5E2BF5DA42008018C0 /* HiveCreationRedirectView.swift */; };
 		54F5781A2BB90E28009683F5 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 54F578192BB90E28009683F5 /* FirebaseAnalyticsSwift */; };
 		54F5781D2BB90E9F009683F5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 54F5781C2BB90E9F009683F5 /* FirebaseFirestore */; };
 		54F578212BB90F28009683F5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 54F578202BB90F28009683F5 /* FirebaseAuth */; };
@@ -121,6 +122,7 @@
 		54EC2C582BF5CADF008018C0 /* CreateHiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHiveView.swift; sourceTree = "<group>"; };
 		54EC2C5A2BF5CE12008018C0 /* HiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveView.swift; sourceTree = "<group>"; };
 		54EC2C5C2BF5CFF8008018C0 /* HiveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveManager.swift; sourceTree = "<group>"; };
+		54EC2C5E2BF5DA42008018C0 /* HiveCreationRedirectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveCreationRedirectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				5444C32A2BB62D5400836F33 /* NoGroupViews */,
 				548290B42BBC9158002BD95D /* SettingsView.swift */,
 				54EC2C582BF5CADF008018C0 /* CreateHiveView.swift */,
+				54EC2C5E2BF5DA42008018C0 /* HiveCreationRedirectView.swift */,
 			);
 			path = SessionViews;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				548290B52BBC9158002BD95D /* SettingsView.swift in Sources */,
 				5444C33C2BB6776800836F33 /* GroupDelete.swift in Sources */,
 				54C0CA9F2BB54D5E00E9267A /* LoginOptionView.swift in Sources */,
+				54EC2C5F2BF5DA42008018C0 /* HiveCreationRedirectView.swift in Sources */,
 				5444C3302BB674A700836F33 /* CreateGroupView.swift in Sources */,
 				541C9EF42BEC92A1009D2E83 /* UserManager.swift in Sources */,
 				548290BE2BBE239D002BD95D /* SignedOutViewModel.swift in Sources */,

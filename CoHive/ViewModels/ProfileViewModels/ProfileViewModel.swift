@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class ProfileViewModel: ObservableObject {
     
     @Published private(set) var user: CoHiveUser? = nil

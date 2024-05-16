@@ -16,7 +16,7 @@ final class HiveManager {
     static let shared = HiveManager() 
     private init() {}
     
-    private let hiveCollection = Firestore.firestore().collection("hive")
+    private let hiveCollection = Firestore.firestore().collection("hives")
     
     private func hiveDocument(hiveId: String) -> DocumentReference {
         hiveCollection.document(hiveId)
@@ -36,6 +36,7 @@ final class HiveManager {
     
     func createNewHive(hive: Hive) async throws {
         try hiveDocument(hiveId: hive.hiveId).setData(from: hive, merge: false, encoder: encoder)
+        try await UserManager.shared.updateUserHive(userId: hive.users[0].userId, hiveId: hive.hiveId)
     }
     
     func getHive(hiveId: String) async throws -> Hive {
