@@ -17,12 +17,14 @@ struct CoHiveUser : Codable {
     let email : String?
     let photoUrl : String?
     let dateCreated : Date?
+    let hive: Hive?
     
     init(auth: AuthDataResultModel) {
         userId = auth.uid
         email = auth.email
         photoUrl = auth.photoUrl
         dateCreated = Date()
+        hive = nil
     }
     
 }

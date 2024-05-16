@@ -20,62 +20,69 @@ struct SignedOutView: View {
     @Binding var showSignInView: Bool
     
     let accent : Color = Color("AccentColor")
+    let button : Color = Color("ButtonColor")
     var body: some View {
-        VStack {
-            NavigationLink {
-                SignInUsingEmailView(showSignInView: $showSignInView)
-            } label: {
-                Text("Sign in using email")
-                    .padding()
-                    .frame(width: 400, height: 55)
-                    .background(content: {
-                        RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                            .foregroundStyle(Color("BackgroundColor"))
-                    })
-            }
-            
-            GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(
-                                scheme: .dark,
-                                style: .standard,
-                                state: .normal))
-            {
-                Task {
-                    do {
-                        try await viewModel.signInGoogle()
-                        showSignInView = false
-                    } catch {
-                        print(error)
-                    }
-                }
-            }
-            .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
-            .frame(height: 55)
-            
-            Button {
-                Task {
-                    do {
-                        try await viewModel.signInApple()
-                        showSignInView = false
-                    } catch {
-                        print(error)
-                    }
-                }
-            } label: {
-                SignInWithAppleButtonViewRepresentable(type: .default, style: .black)
-                    .allowsHitTesting(false)
-            }
-            .frame(height: 55)
+        ZStack {
+            Color("BackgroundColor").ignoresSafeArea()
+            VStack {
+                Spacer()
+                Image("CoHiveLogo")
+                Spacer()
+                
+                NavigationLink {
+                    SignInUsingEmailView(showSignInView: $showSignInView)
+                } label: {
+                    Label("Sign in with email", systemImage: "envelope.fill")
+                        .frame(width: 270, height: 15)
+                        .padding()
+                        .background(button)
                     
-            Spacer()
+                }
+                
+                GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(
+                    scheme: .dark,
+                    style: .standard,
+                    state: .normal))
+                {
+                    Task {
+                        do {
+                            try await viewModel.signInGoogle()
+                            showSignInView = false
+                        } catch {
+                            print(error)
+                        }
+                    }
+                }
+                //            .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
+                .frame(height: 55)
+                
+                Button {
+                    Task {
+                        do {
+                            try await viewModel.signInApple()
+                            showSignInView = false
+                        } catch {
+                            print(error)
+                        }
+                    }
+                } label: {
+                    SignInWithAppleButtonViewRepresentable(type: .default, style: .black)
+                        .allowsHitTesting(false)
+                }
+                .frame(height: 50)
+                
+                Spacer()
+            }
+            .frame(width: 300)
         }
-        .navigationTitle("Sign in")
     }
+//        .background(Color("BackgroundColor"))
 }
 
 
 #Preview {
     NavigationStack {
         SignedOutView(showSignInView: .constant(false))
-            .font(Font.custom("Josefin Sans", size: 15) )
+            .font(Font.custom("Josefin Sans", size: 20) )
     }
 }

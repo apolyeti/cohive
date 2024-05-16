@@ -8,20 +8,26 @@
 import Foundation
 import SwiftData
 
-@Model
-final class Hive {
+
+struct Hive : Codable {
     // make sure these fields are the exact same as the ones shown on the database.
     var id: Int
     var name: String
 //    var users: [User]
     var chores: [Chore]
+    var users: [CoHiveUser]
     
     // any updates or changes make sure to include in here as well.
-    init(id: Int, name: String, /*users: [User],*/ chores: [Chore]) {
+    init(id: Int, 
+         name: String,
+         chores: [Chore],
+         users: [CoHiveUser])
+    {
         self.id = id
         self.name = name
-//        self.users = users
         self.chores = chores
+        self.users = users
     }
+    
 
 }
