@@ -9,6 +9,12 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+
+
+/// Allows to connect the CoHiveUser models we have created to perform reads and writes to Firestore's Realtime Database.
+/// Any logic handling CoHiveUsers should be handled here.
+
+/* USERMANAGER START */
 final class UserManager {
     
     static let shared = UserManager()
@@ -76,3 +82,4 @@ final class UserManager {
 //    }
     
 }
+/* USERMANAGER START */

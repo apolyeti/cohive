@@ -7,6 +7,10 @@
 
 import Foundation
 
+/// Model for CoHive Users
+/// Note: This is different from the User model Google uses for authentication.
+
+/* COHIVEUSER START */
 struct CoHiveUser : Codable {
     
     let userId : String
@@ -22,3 +26,4 @@ struct CoHiveUser : Codable {
     }
     
 }
+/* COHIVEUSER END */

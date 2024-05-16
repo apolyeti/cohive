@@ -35,6 +35,7 @@ struct AuthDataResultModel {
 /* AUTHDATARESULT MODEL END */
 
 enum AuthProviderOptions: String {
+    
     case email = "password"
     
     case google = "google.com"
@@ -59,23 +60,34 @@ class FirestoreManager: ObservableObject {
     }
     
     func getProviders() throws -> [AuthProviderOptions] {
+        
         guard let providerData = Auth.auth().currentUser?.providerData else {
             throw URLError(.badServerResponse)
+            
         }
         
         var providers: [AuthProviderOptions] = []
+        
         for provider in providerData {
+            
             if let option = AuthProviderOptions(rawValue: provider.providerID) {
+                
                 providers.append(option)
+                
             } else {
+                
                 assertionFailure("Provider option not found: \(provider.providerID)")
+                
             }
         }
+        
         return providers
     }
     
     func signOut() throws {
+        
         try Auth.auth().signOut()
+        
     }
     
 }
