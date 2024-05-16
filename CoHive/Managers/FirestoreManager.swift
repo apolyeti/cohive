@@ -24,11 +24,20 @@ struct AuthDataResultModel {
     let uid: String
     let email: String?
     let photoUrl: String?
+    let provider: String?
     
     init(user: User) {
         self.uid = user.uid
         self.email = user.email
         self.photoUrl = user.photoURL?.absoluteString
+        self.provider = "email"
+    }
+    
+    init(user: User, provider: String) {
+        self.uid = user.uid
+        self.email = user.email
+        self.photoUrl = user.photoURL?.absoluteString
+        self.provider = provider
     }
     
 }
@@ -155,7 +164,7 @@ extension FirestoreManager {
     
     func signInUsingAuthenticationCredential(authCredential: AuthCredential) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().signIn(with: authCredential)
-        return AuthDataResultModel(user: authDataResult.user)
+        return AuthDataResultModel(user: authDataResult.user, provider: "apple")
     }
     
 }

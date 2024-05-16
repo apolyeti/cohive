@@ -22,7 +22,9 @@ struct ProfileView: View {
                 }
                 
                 if let email = viewModel.user?.email {
-                    Text("Email: \(email)")
+                    if viewModel.authData?.provider != "apple" {
+                        Text("Email: \(email)")
+                    }
                 }
                 //            NavigationLink {
                 //                CreateHiveView()
@@ -52,6 +54,7 @@ struct ProfileView: View {
             }
             .task {
                 try? await viewModel.loadCurrentUser()
+                try? await viewModel.loadAuthDataResult()
             }
             .navigationTitle("Profile")
             .toolbar {
