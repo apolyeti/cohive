@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ExpenseItemView: View {
+    let expense: Expense
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GroupBox("Content") {
+            Text("Test content at the moment")
+        }
     }
 }
 

@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ExpensesView: View {
     var body: some View {
-        
+        ZStack {
+            Color("BackgroundColor")
+            Text("Expenses View")
+        }
     }
 }
 
