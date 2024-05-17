@@ -24,20 +24,54 @@ final class HiveViewModel: ObservableObject {
 
 struct HiveView: View {
     @StateObject private var viewModel = HiveViewModel()
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color("ButtonColor"))
+    }
 
     
     var body: some View {
+        ZStack {
+            Color("BackgroundColor").ignoresSafeArea()
+            VStack {
+
         
-        VStack {
-            if let hive = viewModel.hive {
-                Text("Welcome to \(hive.name)")
+                if let hive = viewModel.hive {
+                    Text("Welcome to \(hive.name)")
+                } else {
+                    Text("Hive Name")
+                }
+                
+                TabView {
+//                    ZStack {
+//                        Color("BackgroundColor")
+                        Text("Rankings View")
+                            .tabItem {
+                                Label("Rankings", systemImage: "chart.bar")
+                            }
+//                    }
+                    
+                    Text("Food View")
+                        .tabItem {
+                            Label("Food", systemImage: "fork.knife.circle")
+                        }
+                    
+                    Text("Expenses View")
+                        .tabItem {
+                            Label("Expenses", systemImage: "dollarsign.circle")
+                        }
+                }
+                
+
+            }.task {
+                try? await viewModel.getHive()
             }
-        }.task {
-            try? await viewModel.getHive()
         }
     }
 }
 
 #Preview {
-    HiveView()
+    NavigationStack {
+        HiveView()
+    }
 }
