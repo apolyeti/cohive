@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExpenseItemView: View {
-    let expense: Expense
+    let expense: IdentifiableExpense
     var body: some View {
         GroupBox {
             VStack {
@@ -33,8 +33,9 @@ struct ExpenseItemView: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        ExpenseItemView(expense: Expense(item: "Eggs", price: 11.99, message: "split 6 ways please pay up"))
-    }
-}
+//#Preview {
+//    let expense = Expense(item: "Eggs", price: 11.99, message: "split 6 ways please pay up")
+//    let idexpense = IdentifiableExpense(expense: expense)
+//    
+//    ExpenseItemView(expense: idexpense)
+//}

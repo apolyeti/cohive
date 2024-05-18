@@ -6,3 +6,22 @@
 //
 
 import Foundation
+
+struct IdentifiableExpense : Identifiable {
+    var id: UUID
+    
+    var user: CoHiveUser?
+    var hive: Hive?
+    var dateCreated: Date!
+    var item: String!
+    var price: Float!
+    var message: String?
+    
+    init(expense: Expense) {
+        self.dateCreated = Date()
+        self.item = expense.item
+        self.price = expense.price
+        self.message = expense.message
+        self.id = UUID()
+    }
+}
