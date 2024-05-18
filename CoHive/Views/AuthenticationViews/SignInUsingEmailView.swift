@@ -15,49 +15,56 @@ struct SignInUsingEmailView: View {
     @Binding var showSignInView : Bool
     
     var body: some View {
-        VStack {
-            
-            TextField("Email:", text: $viewModel.email)
-                .padding()
-                .background(Color.gray)
-                .cornerRadius(10)
-            
-            SecureField("Password:", text: $viewModel.password)
-                .padding()
-                .background(Color.gray)
-                .cornerRadius(10)
-            
-            Button {
-                Task {
-                    do {
-                        try await viewModel.signUp()
-                        showSignInView = false
-                        return
-                    } catch {
-                        print("User is either signed up, or invalid data inputted!")
-                    }
-                    
-                    do {
-                        try await viewModel.signIn()
-                        showSignInView = false
-                        return
-                    } catch {
-                        print(error)
-                    }
-                }
-            } label: {
-                Text("Sign in")
-                    .font(.headline)
-                    .foregroundColor(Color("AccentColor"))
-                    .frame(height:55)
-                    .background(Color.blue)
+        ZStack {
+            Color("BackgroundColor").ignoresSafeArea()
+            VStack {
+                Spacer()
+                Image("CoHive")
+                Text("Sign in with email address")
+                    .padding(5)
+                    .font(Font.custom("Josefin Sans", size: 20))
+                TextField("Email:", text: $viewModel.email)
+                    .frame(width: 300, height: 20)
+                    .padding()
+                    .background(Color.white)
                     .cornerRadius(10)
+                SecureField("Password:", text: $viewModel.password)
+                    .frame(width: 300, height: 20)
+                    .padding()
+                    .background(Color.white)
+                    .cornerRadius(10)
+                Button {
+                    Task {
+                        do {
+                            try await viewModel.signUp()
+                            showSignInView = false
+                            return
+                        } catch {
+                            print("User is either signed up, or invalid data inputted!")
+                        }
+                        
+                        do {
+                            try await viewModel.signIn()
+                            showSignInView = false
+                            return
+                        } catch {
+                            print(error)
+                        }
+                    }
+                } label: {
+                    Text("Sign in")
+                        .font(.headline)
+                        .foregroundColor(Color("AccentColor"))
+                        .frame(width:300, height: 55)
+                        .background(Color("ButtonColor"))
+                        .cornerRadius(10)
+                }
+                Spacer()
+                
             }
-            
-            Spacer()
+//            .padding()
+//            .navigationTitle("Sign in using email")
         }
-        .padding()
-        .navigationTitle("Sign in using email")
     }
     
     

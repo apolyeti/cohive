@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2E5876302BB7F16D00277551 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E58762F2BB7F16D00277551 /* FirestoreManager.swift */; };
 		2E5876342BB7F1C300277551 /* SignInUsingEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5876332BB7F1C200277551 /* SignInUsingEmailView.swift */; };
+		540E7C832BF81FA800BE0C38 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540E7C822BF81FA800BE0C38 /* ExpensesView.swift */; };
+		540E7C862BF81FDF00BE0C38 /* ExpenseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540E7C852BF81FDF00BE0C38 /* ExpenseItemView.swift */; };
+		540E7C882BF820B100BE0C38 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540E7C872BF820B100BE0C38 /* Expense.swift */; };
+		540E7C8A2BF851DE00BE0C38 /* IdentifiableExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540E7C892BF851DE00BE0C38 /* IdentifiableExpense.swift */; };
+		540E7C8C2BF8610700BE0C38 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540E7C8B2BF8610700BE0C38 /* AddExpenseView.swift */; };
 		541C9EEB2BEB2C26009D2E83 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 541C9EEA2BEB2C26009D2E83 /* FirebaseFirestoreSwift */; };
 		541C9EEF2BEC7240009D2E83 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C9EEE2BEC7240009D2E83 /* ProfileView.swift */; };
 		541C9EF22BEC736A009D2E83 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C9EF12BEC736A009D2E83 /* ProfileViewModel.swift */; };
@@ -17,8 +22,6 @@
 		5444C32E2BB6746400836F33 /* NoGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C32D2BB6746400836F33 /* NoGroupView.swift */; };
 		5444C3302BB674A700836F33 /* CreateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C32F2BB674A700836F33 /* CreateGroupView.swift */; };
 		5444C3322BB674FA00836F33 /* JoinGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3312BB674FA00836F33 /* JoinGroupView.swift */; };
-		5444C3342BB675DB00836F33 /* GroupDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3332BB675DB00836F33 /* GroupDashboardView.swift */; };
-		5444C3362BB6763C00836F33 /* InviteUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3352BB6763C00836F33 /* InviteUserView.swift */; };
 		5444C33A2BB6771E00836F33 /* GroupCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C3392BB6771E00836F33 /* GroupCreate.swift */; };
 		5444C33C2BB6776800836F33 /* GroupDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C33B2BB6776700836F33 /* GroupDelete.swift */; };
 		5444C33F2BB6780900836F33 /* AddUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5444C33E2BB6780900836F33 /* AddUser.swift */; };
@@ -51,6 +54,10 @@
 		54C0CA9F2BB54D5E00E9267A /* LoginOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0CA9E2BB54D5E00E9267A /* LoginOptionView.swift */; };
 		54C0CAA22BB5518C00E9267A /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0CAA12BB5518C00E9267A /* RegisterView.swift */; };
 		54E0A2052BB53A45002009B0 /* JosefinSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54E0A2042BB53A45002009B0 /* JosefinSans.ttf */; };
+		54EC2C592BF5CADF008018C0 /* CreateHiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC2C582BF5CADF008018C0 /* CreateHiveView.swift */; };
+		54EC2C5B2BF5CE12008018C0 /* HiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC2C5A2BF5CE12008018C0 /* HiveView.swift */; };
+		54EC2C5D2BF5CFF8008018C0 /* HiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC2C5C2BF5CFF8008018C0 /* HiveManager.swift */; };
+		54EC2C5F2BF5DA42008018C0 /* HiveCreationRedirectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EC2C5E2BF5DA42008018C0 /* HiveCreationRedirectView.swift */; };
 		54F5781A2BB90E28009683F5 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 54F578192BB90E28009683F5 /* FirebaseAnalyticsSwift */; };
 		54F5781D2BB90E9F009683F5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 54F5781C2BB90E9F009683F5 /* FirebaseFirestore */; };
 		54F578212BB90F28009683F5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 54F578202BB90F28009683F5 /* FirebaseAuth */; };
@@ -76,6 +83,11 @@
 /* Begin PBXFileReference section */
 		2E58762F2BB7F16D00277551 /* FirestoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
 		2E5876332BB7F1C200277551 /* SignInUsingEmailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInUsingEmailView.swift; sourceTree = "<group>"; };
+		540E7C822BF81FA800BE0C38 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
+		540E7C852BF81FDF00BE0C38 /* ExpenseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemView.swift; sourceTree = "<group>"; };
+		540E7C872BF820B100BE0C38 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		540E7C892BF851DE00BE0C38 /* IdentifiableExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableExpense.swift; sourceTree = "<group>"; };
+		540E7C8B2BF8610700BE0C38 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		541C9EE72BEAE8F8009D2E83 /* CoHiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoHiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		541C9EE82BEAE8F8009D2E83 /* CoHiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoHiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		541C9EEE2BEC7240009D2E83 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -85,8 +97,6 @@
 		5444C32D2BB6746400836F33 /* NoGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoGroupView.swift; sourceTree = "<group>"; };
 		5444C32F2BB674A700836F33 /* CreateGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupView.swift; sourceTree = "<group>"; };
 		5444C3312BB674FA00836F33 /* JoinGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinGroupView.swift; sourceTree = "<group>"; };
-		5444C3332BB675DB00836F33 /* GroupDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDashboardView.swift; sourceTree = "<group>"; };
-		5444C3352BB6763C00836F33 /* InviteUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteUserView.swift; sourceTree = "<group>"; };
 		5444C3392BB6771E00836F33 /* GroupCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCreate.swift; sourceTree = "<group>"; };
 		5444C33B2BB6776700836F33 /* GroupDelete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDelete.swift; sourceTree = "<group>"; };
 		5444C33E2BB6780900836F33 /* AddUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUser.swift; sourceTree = "<group>"; };
@@ -119,6 +129,10 @@
 		54C0CA9E2BB54D5E00E9267A /* LoginOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionView.swift; sourceTree = "<group>"; };
 		54C0CAA12BB5518C00E9267A /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		54E0A2042BB53A45002009B0 /* JosefinSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JosefinSans.ttf; sourceTree = "<group>"; };
+		54EC2C582BF5CADF008018C0 /* CreateHiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHiveView.swift; sourceTree = "<group>"; };
+		54EC2C5A2BF5CE12008018C0 /* HiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveView.swift; sourceTree = "<group>"; };
+		54EC2C5C2BF5CFF8008018C0 /* HiveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveManager.swift; sourceTree = "<group>"; };
+		54EC2C5E2BF5DA42008018C0 /* HiveCreationRedirectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiveCreationRedirectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +167,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		540E7C842BF81FCC00BE0C38 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				540E7C822BF81FA800BE0C38 /* ExpensesView.swift */,
+				540E7C852BF81FDF00BE0C38 /* ExpenseItemView.swift */,
+				540E7C8B2BF8610700BE0C38 /* AddExpenseView.swift */,
+			);
+			path = Expenses;
+			sourceTree = "<group>";
+		};
 		541C9EE92BEB2C26009D2E83 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +214,8 @@
 				5444C32B2BB62D7C00836F33 /* GroupViews */,
 				5444C32A2BB62D5400836F33 /* NoGroupViews */,
 				548290B42BBC9158002BD95D /* SettingsView.swift */,
+				54EC2C582BF5CADF008018C0 /* CreateHiveView.swift */,
+				54EC2C5E2BF5DA42008018C0 /* HiveCreationRedirectView.swift */,
 			);
 			path = SessionViews;
 			sourceTree = "<group>";
@@ -207,8 +233,8 @@
 		5444C32B2BB62D7C00836F33 /* GroupViews */ = {
 			isa = PBXGroup;
 			children = (
-				5444C3332BB675DB00836F33 /* GroupDashboardView.swift */,
-				5444C3352BB6763C00836F33 /* InviteUserView.swift */,
+				540E7C842BF81FCC00BE0C38 /* Expenses */,
+				54EC2C5A2BF5CE12008018C0 /* HiveView.swift */,
 			);
 			path = GroupViews;
 			sourceTree = "<group>";
@@ -263,8 +289,10 @@
 			isa = PBXGroup;
 			children = (
 				545EC9ED2BB51C3B00143A64 /* Hive.swift */,
+				540E7C892BF851DE00BE0C38 /* IdentifiableExpense.swift */,
 				545EC9EF2BB51D0A00143A64 /* Chore.swift */,
 				541C9EF52BECA051009D2E83 /* CoHiveUser.swift */,
+				540E7C872BF820B100BE0C38 /* Expense.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,6 +305,7 @@
 				2E58762F2BB7F16D00277551 /* FirestoreManager.swift */,
 				548290B02BBBB4D9002BD95D /* AppDelegate.swift */,
 				541C9EF32BEC92A1009D2E83 /* UserManager.swift */,
+				54EC2C5C2BF5CFF8008018C0 /* HiveManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -550,23 +579,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				540E7C8C2BF8610700BE0C38 /* AddExpenseView.swift in Sources */,
 				548290B52BBC9158002BD95D /* SettingsView.swift in Sources */,
 				5444C33C2BB6776800836F33 /* GroupDelete.swift in Sources */,
 				54C0CA9F2BB54D5E00E9267A /* LoginOptionView.swift in Sources */,
+				540E7C832BF81FA800BE0C38 /* ExpensesView.swift in Sources */,
+				54EC2C5F2BF5DA42008018C0 /* HiveCreationRedirectView.swift in Sources */,
 				5444C3302BB674A700836F33 /* CreateGroupView.swift in Sources */,
-				5444C3362BB6763C00836F33 /* InviteUserView.swift in Sources */,
 				541C9EF42BEC92A1009D2E83 /* UserManager.swift in Sources */,
 				548290BE2BBE239D002BD95D /* SignedOutViewModel.swift in Sources */,
+				54EC2C5D2BF5CFF8008018C0 /* HiveManager.swift in Sources */,
+				540E7C882BF820B100BE0C38 /* Expense.swift in Sources */,
 				5444C32E2BB6746400836F33 /* NoGroupView.swift in Sources */,
 				541C9EF62BECA051009D2E83 /* CoHiveUser.swift in Sources */,
 				5487CA652BAEBD060070F6C3 /* SignedOutView.swift in Sources */,
 				548290B92BBE211D002BD95D /* GIDSignInButton.swift in Sources */,
 				548290C62BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift in Sources */,
 				545EC9F02BB51D0A00143A64 /* Chore.swift in Sources */,
+				54EC2C592BF5CADF008018C0 /* CreateHiveView.swift in Sources */,
 				541C9EF22BEC736A009D2E83 /* ProfileViewModel.swift in Sources */,
-				5444C3342BB675DB00836F33 /* GroupDashboardView.swift in Sources */,
 				548290C02BBE2400002BD95D /* SignInUsingEmailViewModel.swift in Sources */,
 				2E5876302BB7F16D00277551 /* FirestoreManager.swift in Sources */,
+				54EC2C5B2BF5CE12008018C0 /* HiveView.swift in Sources */,
 				548290B32BBC8B4C002BD95D /* RootView.swift in Sources */,
 				5444C33F2BB6780900836F33 /* AddUser.swift in Sources */,
 				54C0CAA22BB5518C00E9267A /* RegisterView.swift in Sources */,
@@ -580,7 +614,9 @@
 				548290B12BBBB4D9002BD95D /* AppDelegate.swift in Sources */,
 				545EC9EE2BB51C3B00143A64 /* Hive.swift in Sources */,
 				548290A72BB9224C002BD95D /* TempLoginOptionView.swift in Sources */,
+				540E7C8A2BF851DE00BE0C38 /* IdentifiableExpense.swift in Sources */,
 				548290C22BBE242B002BD95D /* SettingsViewModel.swift in Sources */,
+				540E7C862BF81FDF00BE0C38 /* ExpenseItemView.swift in Sources */,
 				548290C92BC2422C002BD95D /* SignInUsingAppleHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

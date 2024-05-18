@@ -17,22 +17,22 @@ import GoogleSignIn
 struct CoHiveApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-    var sharedModelContainer: ModelContainer = {
-        // (Hovhannes) temporarily changed referenced schema field to User to prevent error
-        // (Arveen) temporarily cleared Schemas due to repetitive references to User (both our code and Google's)
-        let schema = Schema([
-            //            User.self,
-            //            Hive.self,
-            //            Chore.self
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-        
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+//    var sharedModelContainer: ModelContainer = {
+//        // (Hovhannes) temporarily changed referenced schema field to User to prevent error
+//        // (Arveen) temporarily cleared Schemas due to repetitive references to User (both our code and Google's)
+//        let schema = Schema([
+//            //            User.self,
+//            //            Hive.self,
+//            //            Chore.self
+//        ])
+//        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+//        
+//        do {
+//            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+//        } catch {
+//            fatalError("Could not create ModelContainer: \(error)")
+//        }
+//    }()
     
     
     /* SHOW ROOT VIEW START */
@@ -43,7 +43,7 @@ struct CoHiveApp: App {
                 RootView()
                     .font(customFont)
             }
-            .modelContainer(sharedModelContainer)
+//            .modelContainer(sharedModelContainer)
             //        .environmentObject(firestoreManager)
         }
         

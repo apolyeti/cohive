@@ -9,6 +9,12 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+
+
+/// Allows to connect the CoHiveUser models we have created to perform reads and writes to Firestore's Realtime Database.
+/// Any logic handling CoHiveUsers should be handled here.
+
+/* USERMANAGER START */
 final class UserManager {
     
     static let shared = UserManager()
@@ -59,6 +65,32 @@ final class UserManager {
         try await userDocument(userId: userId).getDocument(as: CoHiveUser.self, decoder: decoder)
     }
     
+    func updateUserHive(userId: String, hiveId: String) async throws {
+        
+//        do {
+//            let hive = try await HiveManager.shared.getHive(hiveId: hiveId)
+//            let data: [String: Any] = [
+//                "hive": hive
+//            ]
+//            try await userDocument(userId: userId).updateData(data)
+//            print("User \(userId) successfully bound to hive \(hiveId)")
+//        } catch {
+//            print(error)
+//        }
+        
+        // screw this bruh
+        do {
+            let hive = try await HiveManager.shared.getHive(hiveId: hiveId)
+            let oldUser = try await getUser(userId: userId)
+            let newUser = CoHiveUser(user: oldUser, hive: hive)
+            
+            try userDocument(userId: userId).setData(from: newUser, merge: false, encoder: encoder)
+            print("User \(userId) successfully bound to hive \(hiveId)")
+        } catch {
+            print(error)
+        }
+    }
+    
 //    func getUser(userId: String) async throws -> CoHiveUser {
 //        let snapshot : DocumentSnapshot = try await userDocument(userId: userId).getDocument()
 //        
@@ -76,3 +108,4 @@ final class UserManager {
 //    }
     
 }
+/* USERMANAGER START */
