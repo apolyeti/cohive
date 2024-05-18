@@ -11,30 +11,62 @@ struct ProfileView: View {
         
     @StateObject private var viewModel = ProfileViewModel()
     @Binding var showSignInView: Bool
+    @State private var reloadProfile = false
     
     var body: some View {
-        List {
-            if let user = viewModel.user {
-                Text("UserId: \(user.userId)")
-            }
-            
-            if let email = viewModel.user?.email {
-                Text("Email: \(email)")
-            }
-        
-        }
-        .task {
-            try? await viewModel.loadCurrentUser()
-        }
-        .navigationTitle("Profile")
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink {
-                    SettingsView(showSignInView: $showSignInView)
-                } label: {
-                    Image(systemName: "gear")
-                        .font(.headline)
+        ZStack {
+            Color("BackgroundColor")
+            List {
+                if let user = viewModel.user {
+                    Text("UserId: \(user.userId)")
                 }
+                
+                if let email = viewModel.user?.email {
+                    if viewModel.authData?.provider != "apple" {
+                        Text("Email: \(email)")
+                    }
+                }
+                
+                if let hive = viewModel.user?.hive {
+                    if hive.name != "" {
+                        NavigationLink {
+                            HiveView()
+                        } label: {
+                            Text(hive.name)
+                        }
+                    } else {
+                        NavigationLink {
+                            HiveCreationRedirectView()
+                        } label: {
+                            Text("Create a new hive")
+                        }
+                    }
+                } else {
+                    NavigationLink {
+                        HiveCreationRedirectView()
+                    } label: {
+                        Text("Create a new hive")
+                    }
+                }
+                
+            }
+            .task {
+                try? await viewModel.loadCurrentUser()
+                try? await viewModel.loadAuthDataResult()
+            }
+            .navigationTitle("Profile")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        SettingsView(showSignInView: $showSignInView)
+                    } label: {
+                        Image(systemName: "gear")
+                            .font(.headline)
+                    }
+                }
+            }
+            .onAppear {
+                reloadProfile.toggle()
             }
         }
             

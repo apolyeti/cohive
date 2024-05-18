@@ -12,36 +12,39 @@ struct SettingsView: View {
     @Binding var showSignInView: Bool
     
     var body: some View {
-        List {
-            Button("log out") {
-                Task {
-                    do {
-                        try viewModel.signOut()
-                        showSignInView = true
-                    } catch {
-                        print("Failed signing out")
-                        print(error)
-                    }
-                }
-            }
-            if viewModel.authProviders.contains(.email) {
-                Button("reset password") {
+        ZStack {
+            Color("BackgroundColor")
+            List {
+                Button("log out") {
                     Task {
                         do {
-                            try await viewModel.resetPassword()
-                            print("PASSWORD RESET")
+                            try viewModel.signOut()
+                            showSignInView = true
                         } catch {
                             print("Failed signing out")
                             print(error)
                         }
                     }
                 }
+                if viewModel.authProviders.contains(.email) {
+                    Button("reset password") {
+                        Task {
+                            do {
+                                try await viewModel.resetPassword()
+                                print("PASSWORD RESET")
+                            } catch {
+                                print("Failed signing out")
+                                print(error)
+                            }
+                        }
+                    }
+                }
             }
+            .onAppear {
+                viewModel.loadAuthProviders()
+            }
+            .navigationTitle("settings")
         }
-        .onAppear {
-            viewModel.loadAuthProviders()
-        }
-        .navigationTitle("settings")
     }
 }
 
