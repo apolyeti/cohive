@@ -26,9 +26,7 @@ struct ProfileView: View {
                         Text("Email: \(email)")
                     }
                 }
-                //            NavigationLink {
-                //                CreateHiveView()
-                //            }
+                
                 if let hive = viewModel.user?.hive {
                     if hive.name != "" {
                         NavigationLink {
