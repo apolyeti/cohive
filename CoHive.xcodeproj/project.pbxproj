@@ -12,6 +12,8 @@
 		540E7C832BF81FA800BE0C38 /* ExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540E7C822BF81FA800BE0C38 /* ExpensesView.swift */; };
 		540E7C862BF81FDF00BE0C38 /* ExpenseItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540E7C852BF81FDF00BE0C38 /* ExpenseItemView.swift */; };
 		540E7C882BF820B100BE0C38 /* Expense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540E7C872BF820B100BE0C38 /* Expense.swift */; };
+		540E7C8A2BF851DE00BE0C38 /* IdentifiableExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540E7C892BF851DE00BE0C38 /* IdentifiableExpense.swift */; };
+		540E7C8C2BF8610700BE0C38 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540E7C8B2BF8610700BE0C38 /* AddExpenseView.swift */; };
 		541C9EEB2BEB2C26009D2E83 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 541C9EEA2BEB2C26009D2E83 /* FirebaseFirestoreSwift */; };
 		541C9EEF2BEC7240009D2E83 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C9EEE2BEC7240009D2E83 /* ProfileView.swift */; };
 		541C9EF22BEC736A009D2E83 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541C9EF12BEC736A009D2E83 /* ProfileViewModel.swift */; };
@@ -84,6 +86,8 @@
 		540E7C822BF81FA800BE0C38 /* ExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesView.swift; sourceTree = "<group>"; };
 		540E7C852BF81FDF00BE0C38 /* ExpenseItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseItemView.swift; sourceTree = "<group>"; };
 		540E7C872BF820B100BE0C38 /* Expense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Expense.swift; sourceTree = "<group>"; };
+		540E7C892BF851DE00BE0C38 /* IdentifiableExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableExpense.swift; sourceTree = "<group>"; };
+		540E7C8B2BF8610700BE0C38 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
 		541C9EE72BEAE8F8009D2E83 /* CoHiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoHiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		541C9EE82BEAE8F8009D2E83 /* CoHiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoHiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		541C9EEE2BEC7240009D2E83 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 			children = (
 				540E7C822BF81FA800BE0C38 /* ExpensesView.swift */,
 				540E7C852BF81FDF00BE0C38 /* ExpenseItemView.swift */,
+				540E7C8B2BF8610700BE0C38 /* AddExpenseView.swift */,
 			);
 			path = Expenses;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				545EC9ED2BB51C3B00143A64 /* Hive.swift */,
+				540E7C892BF851DE00BE0C38 /* IdentifiableExpense.swift */,
 				545EC9EF2BB51D0A00143A64 /* Chore.swift */,
 				541C9EF52BECA051009D2E83 /* CoHiveUser.swift */,
 				540E7C872BF820B100BE0C38 /* Expense.swift */,
@@ -573,6 +579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				540E7C8C2BF8610700BE0C38 /* AddExpenseView.swift in Sources */,
 				548290B52BBC9158002BD95D /* SettingsView.swift in Sources */,
 				5444C33C2BB6776800836F33 /* GroupDelete.swift in Sources */,
 				54C0CA9F2BB54D5E00E9267A /* LoginOptionView.swift in Sources */,
@@ -607,6 +614,7 @@
 				548290B12BBBB4D9002BD95D /* AppDelegate.swift in Sources */,
 				545EC9EE2BB51C3B00143A64 /* Hive.swift in Sources */,
 				548290A72BB9224C002BD95D /* TempLoginOptionView.swift in Sources */,
+				540E7C8A2BF851DE00BE0C38 /* IdentifiableExpense.swift in Sources */,
 				548290C22BBE242B002BD95D /* SettingsViewModel.swift in Sources */,
 				540E7C862BF81FDF00BE0C38 /* ExpenseItemView.swift in Sources */,
 				548290C92BC2422C002BD95D /* SignInUsingAppleHelper.swift in Sources */,
