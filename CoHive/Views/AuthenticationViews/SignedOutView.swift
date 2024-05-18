@@ -33,15 +33,15 @@ struct SignedOutView: View {
                     SignInUsingEmailView(showSignInView: $showSignInView)
                 } label: {
                     Label("Sign in with email", systemImage: "envelope.fill")
-                        .frame(width: 270, height: 15)
+                        .font(Font.custom("Josefin Sans", size: 18))
+                        .frame(width: 270, height: 10)
                         .padding()
                         .background(button)
-                    
                 }
                 
                 GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(
-                    scheme: .dark,
-                    style: .standard,
+                    scheme: .light,
+                    style: .wide,
                     state: .normal))
                 {
                     Task {
@@ -53,6 +53,7 @@ struct SignedOutView: View {
                         }
                     }
                 }
+                
                 //            .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
                 .frame(height: 55)
                 
@@ -69,7 +70,7 @@ struct SignedOutView: View {
                     SignInWithAppleButtonViewRepresentable(type: .default, style: .black)
                         .allowsHitTesting(false)
                 }
-                .frame(height: 50)
+                .frame(height: 40)
                 
                 Spacer()
             }

@@ -50,10 +50,10 @@ struct CreateHiveView: View {
         ZStack {
             Color("BackgroundColor").ignoresSafeArea()
             VStack {
-                Text("Create a new Hive")
+                Text("What would you like to name your hive?")
                     .font(.headline)
                 TextField("Hive Name", text:$viewModel.hiveName)
-                    .frame(width: 350, height: 30)
+                    .frame(width: 250, height: 30)
                     .padding()
                     .background(Color("ButtonColor"))
                     .cornerRadius(5)
@@ -70,7 +70,7 @@ struct CreateHiveView: View {
                     }
                     
                 } label: {
-                    Text("Create new hive")
+                    Text("Continue setup")
                         .padding()
                         .font(.headline)
                         .foregroundColor(.white)

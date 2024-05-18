@@ -18,17 +18,21 @@ struct SignInUsingEmailView: View {
         ZStack {
             Color("BackgroundColor").ignoresSafeArea()
             VStack {
-                
+                Spacer()
+                Image("CoHive")
+                Text("Sign in with email address")
+                    .padding(5)
+                    .font(Font.custom("Josefin Sans", size: 20))
                 TextField("Email:", text: $viewModel.email)
+                    .frame(width: 300, height: 20)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
-                
                 SecureField("Password:", text: $viewModel.password)
+                    .frame(width: 300, height: 20)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
-                
                 Button {
                     Task {
                         do {
@@ -55,11 +59,11 @@ struct SignInUsingEmailView: View {
                         .background(Color("ButtonColor"))
                         .cornerRadius(10)
                 }
-                
                 Spacer()
+                
             }
-            .padding()
-            .navigationTitle("Sign in using email")
+//            .padding()
+//            .navigationTitle("Sign in using email")
         }
     }
     

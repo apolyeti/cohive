@@ -56,7 +56,8 @@ struct HiveView: View {
                             Label("Food", systemImage: "fork.knife.circle")
                         }
                     
-                    Text("Expenses View")
+//                    Text("Expenses View")
+                    ExpensesView()
                         .tabItem {
                             Label("Expenses", systemImage: "dollarsign.circle")
                         }
