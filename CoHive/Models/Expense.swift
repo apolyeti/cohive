@@ -10,8 +10,8 @@ import Foundation
 /* EXPENSE MODEL START */
 struct Expense : Codable {
     
-    var user: CoHiveUser!
-    var hive: Hive!
+    var user: CoHiveUser?
+    var hive: Hive?
     var dateCreated: Date!
     var item: String!
     var price: Float!
@@ -24,6 +24,15 @@ struct Expense : Codable {
         self.item = item
         self.price = price
         self.message = message
+    }
+    
+    init(item: String, price: Float, message: String?) {
+        self.item = item
+        self.price = price
+        self.message = message
+        self.dateCreated = Date()
+        self.user = nil
+        self.hive = nil
     }
     
 }

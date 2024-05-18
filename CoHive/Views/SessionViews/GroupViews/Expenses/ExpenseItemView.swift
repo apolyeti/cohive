@@ -10,12 +10,31 @@ import SwiftUI
 struct ExpenseItemView: View {
     let expense: Expense
     var body: some View {
-        GroupBox("Content") {
-            Text("Test content at the moment")
+        GroupBox {
+            VStack {
+                HStack {
+                    Text("\(expense.item)")
+                        .bold()
+                    Spacer()
+                    Text("$\(expense.price, specifier: "%.2f")")
+                        .bold()
+                }
+                if let message = expense.message {
+                    HStack {
+                        Text(message)
+                            .italic()
+                        Spacer()
+                    }
+                }
+            }
         }
+        .backgroundStyle(Color("ButtonColor"))
+        .frame(maxWidth: 300)
     }
 }
 
 #Preview {
-    ExpenseItemView()
+    NavigationStack {
+        ExpenseItemView(expense: Expense(item: "Eggs", price: 11.99, message: "split 6 ways please pay up"))
+    }
 }
