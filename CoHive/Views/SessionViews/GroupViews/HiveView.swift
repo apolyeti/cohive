@@ -37,7 +37,7 @@ struct HiveView: View {
 
         
                 if let hive = viewModel.hive {
-                    Text("Welcome to \(hive.name)")
+                    Text("\(hive.name)")
                 } else {
                     Text("Hive Name")
                 }
@@ -68,6 +68,7 @@ struct HiveView: View {
                 try? await viewModel.getHive()
             }
         }
+        .font(Font.custom("Josefin Sans", size: 20))
     }
 }
 

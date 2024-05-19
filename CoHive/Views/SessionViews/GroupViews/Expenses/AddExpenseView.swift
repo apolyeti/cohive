@@ -58,6 +58,7 @@ struct AddExpenseView: View {
             }
                 
         }
+        .font(Font.custom("Josefin Sans", size: 20))
     }
 }
 
