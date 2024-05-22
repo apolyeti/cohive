@@ -15,7 +15,7 @@ struct ProfileView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor")
+            Color("Background")
             List {
                 if let user = viewModel.user {
                     Text("UserId: \(user.userId)")

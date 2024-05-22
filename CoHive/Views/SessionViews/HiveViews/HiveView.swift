@@ -7,59 +7,47 @@
 
 import SwiftUI
 
-@MainActor
-final class HiveViewModel: ObservableObject {
-    func loadCurrentUser() async throws -> CoHiveUser {
-        let authDataResult = try FirestoreManager.shared.getAuthenticatedUser()
-        return try await UserManager.shared.getUser(userId: authDataResult.uid)
-    }
-    
-    func getHive() async throws {
-        let currentUser = try await loadCurrentUser()
-        self.hive = currentUser.hive
-    }
-    
-    @Published var hive : Hive? = nil
-}
-
 struct HiveView: View {
     @StateObject private var viewModel = HiveViewModel()
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(Color("ButtonColor"))
+        UITabBar.appearance().backgroundColor = UIColor(Color("Button"))
     }
 
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             VStack {
 
         
                 if let hive = viewModel.hive {
-                    Text("Welcome to \(hive.name)")
+                    Text("\(hive.name)")
                 } else {
                     Text("Hive Name")
                 }
                 
                 TabView {
-//                    ZStack {
-//                        Color("BackgroundColor")
                         Text("Rankings View")
                             .tabItem {
                                 Label("Rankings", systemImage: "chart.bar")
                             }
 //                    }
                     
-                    Text("Food View")
-                        .tabItem {
-                            Label("Food", systemImage: "fork.knife.circle")
-                        }
+//                    Text("Food View")
+//                        .tabItem {
+//                            Label("Food", systemImage: "fork.knife.circle")
+//                        }
                     
 //                    Text("Expenses View")
                     ExpensesView()
                         .tabItem {
                             Label("Expenses", systemImage: "dollarsign.circle")
+                        }
+                    
+                    ChoresView()
+                        .tabItem {
+                            Label("Chores", systemImage: "checklist")
                         }
                 }
                 
@@ -68,6 +56,7 @@ struct HiveView: View {
                 try? await viewModel.getHive()
             }
         }
+        .font(Font.custom("Josefin Sans", size: 20))
     }
 }
 

@@ -18,7 +18,7 @@ struct IdentifiableExpense : Identifiable {
     var message: String?
     
     init(expense: Expense) {
-        self.dateCreated = Date()
+        self.dateCreated = expense.dateCreated
         self.item = expense.item
         self.price = expense.price
         self.message = expense.message

@@ -11,7 +11,7 @@ import GoogleSignInSwift
 import AuthenticationServices
 
 
-struct SignedOutView: View {
+struct AuthenticationView: View {
     /// The user should be shown this view when either
     /// 1. Attempting to create a new Hive while not in a valid session
     /// 2. They have just logged out of their account.
@@ -19,25 +19,30 @@ struct SignedOutView: View {
     @StateObject private var viewModel = SignedOutViewModel()
     @Binding var showSignInView: Bool
     
-    let accent : Color = Color("AccentColor")
-    let button : Color = Color("ButtonColor")
+    let accent : Color = Color("Accent")
+    let button : Color = Color("Button.primary")
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             VStack {
                 Spacer()
                 Image("CoHiveLogo")
                 Spacer()
                 
-                NavigationLink {
-                    SignInUsingEmailView(showSignInView: $showSignInView)
+                Button {
+                    Task {
+                        do {
+                            try await viewModel.signInApple()
+                            showSignInView = false
+                        } catch {
+                            print(error)
+                        }
+                    }
                 } label: {
-                    Label("Sign in with email", systemImage: "envelope.fill")
-                        .font(Font.custom("Josefin Sans", size: 18))
-                        .frame(width: 270, height: 10)
-                        .padding()
-                        .background(button)
+                    SignInWithAppleButtonViewRepresentable(type: .default, style: .black)
+                        .allowsHitTesting(false)
                 }
+                .frame(height: 40)
                 
                 GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(
                     scheme: .light,
@@ -55,22 +60,27 @@ struct SignedOutView: View {
                 }
                 
                 //            .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
-                .frame(height: 55)
-                
-                Button {
-                    Task {
-                        do {
-                            try await viewModel.signInApple()
-                            showSignInView = false
-                        } catch {
-                            print(error)
-                        }
-                    }
-                } label: {
-                    SignInWithAppleButtonViewRepresentable(type: .default, style: .black)
-                        .allowsHitTesting(false)
-                }
                 .frame(height: 40)
+                
+                NavigationLink {
+                    SignUpUsingEmailView(showSignInView: $showSignInView)
+                } label: {
+                    Label("Sign up with email", systemImage: "envelope.fill")
+                        .font(Font.custom("Josefin Sans", size: 18))
+                        .frame(width: 270, height: 10)
+                        .padding()
+                        .background(button)
+                }
+                
+                NavigationLink {
+                    SignInUsingEmailView(showSignInView: $showSignInView)
+                } label: {
+                    Label("Returning user? Login here", systemImage: "person.circle.fill")
+                        .font(Font.custom("Josefin Sans", size: 18))
+                        .frame(width: 270, height: 10)
+                        .padding()
+                        .background(button)
+                }
                 
                 Spacer()
             }
@@ -83,7 +93,7 @@ struct SignedOutView: View {
 
 #Preview {
     NavigationStack {
-        SignedOutView(showSignInView: .constant(false))
+        AuthenticationView(showSignInView: .constant(false))
             .font(Font.custom("Josefin Sans", size: 20) )
     }
 }

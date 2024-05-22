@@ -16,19 +16,19 @@ struct SignInUsingEmailView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             VStack {
                 Spacer()
                 Image("CoHive")
                 Text("Sign in with email address")
                     .padding(5)
                     .font(Font.custom("Josefin Sans", size: 20))
-                TextField("Email:", text: $viewModel.email)
+                TextField("Email", text: $viewModel.email)
                     .frame(width: 300, height: 20)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
-                SecureField("Password:", text: $viewModel.password)
+                SecureField("Password", text: $viewModel.password)
                     .frame(width: 300, height: 20)
                     .padding()
                     .background(Color.white)
@@ -52,11 +52,11 @@ struct SignInUsingEmailView: View {
                         }
                     }
                 } label: {
-                    Text("Sign in")
+                    Label("Sign in", systemImage: "arrow.up.and.person.rectangle.portrait")
                         .font(.headline)
                         .foregroundColor(Color("AccentColor"))
-                        .frame(width:300, height: 55)
-                        .background(Color("ButtonColor"))
+                        .frame(width:150, height: 50)
+                        .background(Color("Button.primary"))
                         .cornerRadius(10)
                 }
                 Spacer()

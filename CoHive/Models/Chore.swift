@@ -10,22 +10,19 @@ import SwiftData
 
 struct Chore : Codable {
     // make sure these fields are the exact same as the ones shown on the database.
-    var id: Int
+
     var task: String
     var author: CoHiveUser
     var completed: Bool
-    var dateCreated: Date
+
     
     // any updates or changes make sure to include in here as well.
-    init(id: Int,
-         task: String,
+    init(task: String,
          author: CoHiveUser,
          completed: Bool) 
     {
-        self.id = id
         self.task = task
         self.author = author
         self.completed = completed
-        self.dateCreated = Date()
     }
 }

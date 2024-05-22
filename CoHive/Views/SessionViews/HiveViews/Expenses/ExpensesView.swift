@@ -20,7 +20,7 @@ struct ExpensesView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             ScrollView {
                 VStack {
                     ForEach(idexp) { expense in

@@ -7,19 +7,12 @@
 
 import SwiftUI
 
-@MainActor
-final class AddExpenseViewModel: ObservableObject {
-    @Published var itemName: String = ""
-    @Published var price: Float = 0.0
-    @Published var message: String = ""
-}
-
 struct AddExpenseView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel = AddExpenseViewModel()
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             VStack {
                 HStack {
                     Spacer()
@@ -58,6 +51,7 @@ struct AddExpenseView: View {
             }
                 
         }
+        .font(Font.custom("Josefin Sans", size: 20))
     }
 }
 
