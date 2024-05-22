@@ -11,13 +11,13 @@ struct HiveView: View {
     @StateObject private var viewModel = HiveViewModel()
     
     init() {
-        UITabBar.appearance().backgroundColor = UIColor(Color("ButtonColor"))
+        UITabBar.appearance().backgroundColor = UIColor(Color("Button"))
     }
 
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             VStack {
 
         

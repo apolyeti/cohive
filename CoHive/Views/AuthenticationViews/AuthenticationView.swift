@@ -19,11 +19,11 @@ struct AuthenticationView: View {
     @StateObject private var viewModel = SignedOutViewModel()
     @Binding var showSignInView: Bool
     
-    let accent : Color = Color("AccentColor")
-    let button : Color = Color("ButtonColor")
+    let accent : Color = Color("Accent")
+    let button : Color = Color("Button")
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             VStack {
                 Spacer()
                 Image("CoHiveLogo")

@@ -20,7 +20,7 @@ struct ChoresView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             ScrollView {
                 VStack {
                     ForEach(chores) { chore in

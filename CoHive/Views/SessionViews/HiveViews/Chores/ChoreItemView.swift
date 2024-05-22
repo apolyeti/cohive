@@ -23,7 +23,7 @@ struct ChoreItemView: View {
                 }
             }
         }
-        .backgroundStyle(Color("ButtonColor"))
+        .backgroundStyle(Color("Button.primary"))
         .frame(maxWidth: 300)
     }
 }

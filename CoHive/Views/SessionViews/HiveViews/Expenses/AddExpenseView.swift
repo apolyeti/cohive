@@ -12,7 +12,7 @@ struct AddExpenseView: View {
     @StateObject private var viewModel = AddExpenseViewModel()
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             VStack {
                 HStack {
                     Spacer()

@@ -7,53 +7,6 @@
 
 import SwiftUI
 
-@MainActor
-final class CreateHiveViewModel: ObservableObject {
-    @Published private(set) var user: CoHiveUser? = nil
-    
-    @Published var hiveName: String = ""
-    @Published var Users : [CoHiveUser] = []
-    @Published var Chores : [Chore] = []
-    
-    func loadCurrentUser() async throws {
-        let authDataResult = try FirestoreManager.shared.getAuthenticatedUser()
-        self.user = try await UserManager.shared.getUser(userId: authDataResult.uid)
-    }
-    
-    func loadChores(choreNames: [String], user: CoHiveUser) async throws {
-        
-        for chore in choreNames {
-            if chore.isEmpty {
-                return
-            }
-            self.Chores.append(Chore(task: chore, author: user, completed: false))
-        }
-    }
-    
-    func createNewHive(choreNames: [String], hiveName: String) async throws {
-        guard !hiveName.isEmpty else {
-            print("Hive name is empty")
-            return
-        }
-        
-        try await loadCurrentUser()
-        
-        guard let currentUser = user else {
-            print("Current user not found")
-            return
-        }
-        
-        try await loadChores(choreNames: choreNames, user: currentUser)
-        
-        
-        let hive = Hive(name: hiveName, chores: Chores, users: [currentUser])
-        
-        try await HiveManager.shared.createNewHive(hive: hive)
-    }
-    
-        
-    
-}
 
 struct CreateHiveView: View {
     @Binding var hiveName: String
@@ -63,7 +16,7 @@ struct CreateHiveView: View {
     @StateObject private var viewModel = CreateHiveViewModel()
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             VStack {
                 Text("Any chores to add?")
                     .font(Font.custom("Josefin Sans", size: 25))
@@ -121,7 +74,7 @@ struct CreateHiveView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .frame(height:55)
-                            .background(Color("AccentColor"))
+                            .background(Color("Accent"))
                             .cornerRadius(10)
                     } else {
                         Text("Create Hive")
@@ -129,7 +82,7 @@ struct CreateHiveView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .frame(height:55)
-                            .background(Color("AccentColor"))
+                            .background(Color("Accent"))
                             .cornerRadius(10)
                     }
                 }

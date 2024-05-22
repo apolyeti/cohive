@@ -16,7 +16,7 @@ struct SignInUsingEmailView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             VStack {
                 Spacer()
                 Image("CoHive")
@@ -54,9 +54,9 @@ struct SignInUsingEmailView: View {
                 } label: {
                     Text("Sign in")
                         .font(.headline)
-                        .foregroundColor(Color("AccentColor"))
+                        .foregroundColor(Color("Accent"))
                         .frame(width:300, height: 55)
-                        .background(Color("ButtonColor"))
+                        .background(Color("Button"))
                         .cornerRadius(10)
                 }
                 Spacer()

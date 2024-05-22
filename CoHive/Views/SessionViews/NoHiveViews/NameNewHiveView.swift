@@ -56,14 +56,15 @@ struct NameNewHiveView: View {
     var body: some View {
         if !hiveNamed {
             ZStack {
-                Color("BackgroundColor").ignoresSafeArea()
+                Color("Background").ignoresSafeArea()
                 VStack {
+                    Image("CoHive")
                     Text("What would you like to name your hive?")
                         .font(.headline)
                     TextField("Hive Name",text:$viewModel.hiveName)
-                        .frame(width: 250, height: 30)
+                        .frame(width: 250, height: 25)
                         .padding()
-                        .background(Color("ButtonColor"))
+                        .background(Color("Button.secondary"))
                         .cornerRadius(5)
 
                     
@@ -80,7 +81,7 @@ struct NameNewHiveView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                             .frame(height:55)
-                            .background(Color("AccentColor"))
+                            .background(Color("Accent"))
                             .cornerRadius(10)
                     }.disabled(viewModel.hiveName.isEmpty)
                 }

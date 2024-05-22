@@ -13,7 +13,7 @@ struct SettingsView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor")
+            Color("Background")
             List {
                 Button("log out") {
                     Task {
