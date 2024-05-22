@@ -14,7 +14,7 @@ struct Chore : Codable {
     var task: String
     var author: CoHiveUser
     var completed: Bool
-    var dateCreated: Date
+
     
     // any updates or changes make sure to include in here as well.
     init(task: String,
@@ -24,6 +24,5 @@ struct Chore : Codable {
         self.task = task
         self.author = author
         self.completed = completed
-        self.dateCreated = Date()
     }
 }
