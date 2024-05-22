@@ -150,6 +150,7 @@ extension FirestoreManager {
         let accessToken = tokens.accessToken
         
         let authCredential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+        
 
         return try await signInUsingAuthenticationCredential(authCredential: authCredential)
     }

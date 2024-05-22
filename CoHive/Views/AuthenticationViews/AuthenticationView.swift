@@ -20,7 +20,7 @@ struct AuthenticationView: View {
     @Binding var showSignInView: Bool
     
     let accent : Color = Color("Accent")
-    let button : Color = Color("Button")
+    let button : Color = Color("Button.primary")
     var body: some View {
         ZStack {
             Color("Background").ignoresSafeArea()
@@ -29,15 +29,20 @@ struct AuthenticationView: View {
                 Image("CoHiveLogo")
                 Spacer()
                 
-                NavigationLink {
-                    SignInUsingEmailView(showSignInView: $showSignInView)
+                Button {
+                    Task {
+                        do {
+                            try await viewModel.signInApple()
+                            showSignInView = false
+                        } catch {
+                            print(error)
+                        }
+                    }
                 } label: {
-                    Label("Sign in with email", systemImage: "envelope.fill")
-                        .font(Font.custom("Josefin Sans", size: 18))
-                        .frame(width: 270, height: 10)
-                        .padding()
-                        .background(button)
+                    SignInWithAppleButtonViewRepresentable(type: .default, style: .black)
+                        .allowsHitTesting(false)
                 }
+                .frame(height: 40)
                 
                 GoogleSignInButton(viewModel: GoogleSignInButtonViewModel(
                     scheme: .light,
@@ -55,22 +60,27 @@ struct AuthenticationView: View {
                 }
                 
                 //            .clipShape(RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/))
-                .frame(height: 55)
-                
-                Button {
-                    Task {
-                        do {
-                            try await viewModel.signInApple()
-                            showSignInView = false
-                        } catch {
-                            print(error)
-                        }
-                    }
-                } label: {
-                    SignInWithAppleButtonViewRepresentable(type: .default, style: .black)
-                        .allowsHitTesting(false)
-                }
                 .frame(height: 40)
+                
+                NavigationLink {
+                    SignUpUsingEmailView(showSignInView: $showSignInView)
+                } label: {
+                    Label("Sign up with email", systemImage: "envelope.fill")
+                        .font(Font.custom("Josefin Sans", size: 18))
+                        .frame(width: 270, height: 10)
+                        .padding()
+                        .background(button)
+                }
+                
+                NavigationLink {
+                    SignInUsingEmailView(showSignInView: $showSignInView)
+                } label: {
+                    Label("Returning user? Login here", systemImage: "person.circle.fill")
+                        .font(Font.custom("Josefin Sans", size: 18))
+                        .frame(width: 270, height: 10)
+                        .padding()
+                        .background(button)
+                }
                 
                 Spacer()
             }

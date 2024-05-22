@@ -14,6 +14,8 @@ import Foundation
 struct CoHiveUser : Codable {
     
     let userId : String
+    let firstName: String?
+    let lastName: String?
     let email : String?
     let photoUrl : String?
     let dateCreated : Date?
@@ -25,6 +27,8 @@ struct CoHiveUser : Codable {
         photoUrl = auth.photoUrl
         dateCreated = Date()
         hive = nil
+        firstName = nil
+        lastName = nil
     }
     
     init(user: CoHiveUser, hive: Hive) {
@@ -33,7 +37,20 @@ struct CoHiveUser : Codable {
         photoUrl = user.photoUrl
         dateCreated = user.dateCreated
         self.hive = hive
+        self.firstName = user.firstName
+        self.lastName = user.lastName
     }
+    
+    init(auth: AuthDataResultModel, first: String, last: String) {
+        userId = auth.uid
+        email = auth.email
+        photoUrl = auth.photoUrl
+        dateCreated = Date()
+        firstName = first
+        lastName = last
+        hive = nil
+    }
+    
     
 }
 /* COHIVEUSER END */

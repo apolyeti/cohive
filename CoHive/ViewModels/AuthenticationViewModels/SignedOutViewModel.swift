@@ -21,7 +21,7 @@ final class SignedOutViewModel : ObservableObject {
         let GoogleSignIn = SignInUsingGoogleHelper()
         let tokens = try await GoogleSignIn.signIn()
         let authDataResult = try await FirestoreManager.shared.signInUsingGoogleCredential(tokens: tokens)
-        let user = CoHiveUser(auth: authDataResult)
+        let user = CoHiveUser(auth: authDataResult, first: tokens.profile?.givenName ?? "", last: tokens.profile?.familyName ?? "")
         try await UserManager.shared.createNewUser(user: user)
     }
     
@@ -31,7 +31,9 @@ final class SignedOutViewModel : ObservableObject {
         let result = try await signInAppleHelper.startSignInWithAppleFlow()
         let authDataResult = try await FirestoreManager.shared.signInUsingAppleCredential(authResult: result)
 //        try await UserManager.shared.createNewUser(auth: authDataResult)
-        let user = CoHiveUser(auth: authDataResult)
+        let firstName = result.fullName?.givenName ?? ""
+        let lastName = result.fullName?.familyName ?? ""
+        let user = CoHiveUser(auth: authDataResult, first: firstName, last: lastName)
         try await UserManager.shared.createNewUser(user: user)
     }
     
