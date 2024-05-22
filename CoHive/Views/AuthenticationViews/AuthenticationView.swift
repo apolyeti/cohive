@@ -11,7 +11,7 @@ import GoogleSignInSwift
 import AuthenticationServices
 
 
-struct SignedOutView: View {
+struct AuthenticationView: View {
     /// The user should be shown this view when either
     /// 1. Attempting to create a new Hive while not in a valid session
     /// 2. They have just logged out of their account.
@@ -83,7 +83,7 @@ struct SignedOutView: View {
 
 #Preview {
     NavigationStack {
-        SignedOutView(showSignInView: .constant(false))
+        AuthenticationView(showSignInView: .constant(false))
             .font(Font.custom("Josefin Sans", size: 20) )
     }
 }

@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-@MainActor
-final class AddExpenseViewModel: ObservableObject {
-    @Published var itemName: String = ""
-    @Published var price: Float = 0.0
-    @Published var message: String = ""
-}
-
 struct AddExpenseView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel = AddExpenseViewModel()

@@ -28,6 +28,3 @@ struct ChoreItemView: View {
     }
 }
 
-//#Preview {
-//    ChoreItemView()
-//}
