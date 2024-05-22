@@ -20,7 +20,17 @@ final class CreateHiveViewModel: ObservableObject {
         self.user = try await UserManager.shared.getUser(userId: authDataResult.uid)
     }
     
-    func createNewHive() async throws {
+    func loadChores(choreNames: [String], user: CoHiveUser) async throws {
+        
+        for chore in choreNames {
+            if chore.isEmpty {
+                return
+            }
+            self.Chores.append(Chore(task: chore, author: user, completed: false))
+        }
+    }
+    
+    func createNewHive(choreNames: [String], hiveName: String) async throws {
         guard !hiveName.isEmpty else {
             print("Hive name is empty")
             return
@@ -33,9 +43,10 @@ final class CreateHiveViewModel: ObservableObject {
             return
         }
         
+        try await loadChores(choreNames: choreNames, user: currentUser)
         
         
-        let hive = Hive(name: hiveName, chores: [], users: [currentUser])
+        let hive = Hive(name: hiveName, chores: Chores, users: [currentUser])
         
         try await HiveManager.shared.createNewHive(hive: hive)
     }
@@ -77,6 +88,7 @@ struct CreateHiveView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
                 }
+                
                 HStack {
                     Button {
                         Task {
@@ -99,13 +111,26 @@ struct CreateHiveView: View {
                 }
                 Button {
                     Task {
+                        try await viewModel.createNewHive(choreNames: choreNames, hiveName: hiveName)
                         hiveCreated = true
                     }
                 } label: {
                     if (choreCount == 0) {
                         Text("Maybe later")
+                            .padding()
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(height:55)
+                            .background(Color("AccentColor"))
+                            .cornerRadius(10)
                     } else {
                         Text("Create Hive")
+                            .padding()
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(height:55)
+                            .background(Color("AccentColor"))
+                            .cornerRadius(10)
                     }
                 }
             }
