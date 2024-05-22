@@ -59,6 +59,11 @@ struct HiveView: View {
                         .tabItem {
                             Label("Expenses", systemImage: "dollarsign.circle")
                         }
+                    
+                    ChoresView()
+                        .tabItem {
+                            Label("Chores", systemImage: "checklist")
+                        }
                 }
                 
 
