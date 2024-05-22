@@ -5,33 +5,62 @@
 //  Created by Arveen Azhand on 5/22/24.
 //
 
+
 import SwiftUI
 
-struct ChoresView: View {
-    let exp : [Expense] = [
-        Expense(item: "Eggs" , price: 12, message: "Big batch from costco!"),
-        Expense(item: "Toilet paper", price: 15.00, message: "can we please split this"),
-        Expense(item: "Avocado Oil", price: 30, message: nil)
-    ]
+@MainActor
+final class ChoresViewModel : ObservableObject {
     
-    var idexp: [IdentifiableExpense] {
-        exp.map { IdentifiableExpense(expense: $0) }
+    @Published var hive: Hive?
+    @Published var chores: [Chore] = []
+    
+    
+    func loadCurrentUser() async throws -> CoHiveUser {
+        let authDataResult = try FirestoreManager.shared.getAuthenticatedUser()
+        return try await UserManager.shared.getUser(userId: authDataResult.uid)
     }
+    
+    func getHive() async throws {
+        let currentUser = try await loadCurrentUser()
+        self.hive = currentUser.hive
+    }
+    
+    func loadHiveChores() async throws {
+        try await getHive()
+        self.chores = self.hive!.chores
+    }
+}
+
+struct ChoresView: View {
+    
+    @StateObject private var viewModel = ChoresViewModel()
+    
+    var chores: [IdentifiableChore] {
+            viewModel.chores.map { IdentifiableChore(chore: $0) }
+    }
+    
+    
     
     var body: some View {
         ZStack {
             Color("BackgroundColor").ignoresSafeArea()
             ScrollView {
                 VStack {
-                    ForEach(idexp) { expense in
-                        ExpenseItemView(expense: expense)
+                    ForEach(chores) { chore in
+                        ChoreItemView(chore: chore)
                     }
                     NavigationLink {
                         AddExpenseView()
                     } label: {
-                        Text("Add new expense")
+                        Text("Add new chore")
                     }
                 }
+            }
+        }.task {
+            do {
+                try await viewModel.loadHiveChores()
+            } catch {
+                print(error)
             }
         }
     }
