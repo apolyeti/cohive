@@ -14,16 +14,16 @@ struct ChoreItemView: View {
             VStack {
                 HStack {
                     Text("\(chore.task)")
-                        .bold()
+                        
                     Spacer()
-                    if let email = chore.author.email {
-                        Text(email)
-                            .bold()
+                    if let name = chore.author.firstName {
+                        Text(name)
+                            
                     }
                 }
             }
         }
-        .backgroundStyle(Color("Button.primary"))
+        .backgroundStyle(Color("Button.secondary"))
         .frame(maxWidth: 300)
     }
 }

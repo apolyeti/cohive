@@ -34,10 +34,10 @@ struct HiveView: View {
                             }
 //                    }
                     
-                    Text("Food View")
-                        .tabItem {
-                            Label("Food", systemImage: "fork.knife.circle")
-                        }
+//                    Text("Food View")
+//                        .tabItem {
+//                            Label("Food", systemImage: "fork.knife.circle")
+//                        }
                     
 //                    Text("Expenses View")
                     ExpensesView()
