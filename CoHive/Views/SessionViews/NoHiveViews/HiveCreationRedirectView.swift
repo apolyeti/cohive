@@ -11,12 +11,13 @@ import SwiftUI
 
 struct HiveCreationRedirectView: View {
     @State private var hiveCreated: Bool = false
+    @State private var hiveNamed: Bool = false
     
     var body: some View {
         ZStack {
             if !hiveCreated {
                 NavigationStack {
-                    CreateHiveView(hiveCreated: $hiveCreated)
+                    NameNewHiveView(hiveCreated: $hiveCreated, hiveNamed: $hiveNamed)
                 }
             } else {
                 NavigationStack {
