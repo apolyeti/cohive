@@ -43,8 +43,6 @@ struct HiveView: View {
                 }
                 
                 TabView {
-//                    ZStack {
-//                        Color("BackgroundColor")
                         Text("Rankings View")
                             .tabItem {
                                 Label("Rankings", systemImage: "chart.bar")
