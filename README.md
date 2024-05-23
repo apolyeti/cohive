@@ -30,4 +30,3 @@ We welcome contributions from the community! If you would like to contribute to 
 5. Push to the branch (`git push origin feature/your-feature`).
 6. Open a pull request.
 
-Thank you for choosing CoHive. We hope it makes your living experience more enjoyable and organized!
