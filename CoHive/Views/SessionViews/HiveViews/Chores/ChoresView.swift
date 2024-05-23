@@ -21,15 +21,19 @@ struct ChoresView: View {
     var body: some View {
         ZStack {
             Color("Background").ignoresSafeArea()
-            ScrollView {
-                VStack {
-                    ForEach(chores) { chore in
-                        ChoreItemView(chore: chore)
-                    }
-                    NavigationLink {
-                        AddExpenseView()
-                    } label: {
-                        Text("Add new chore")
+            if chores.isEmpty {
+                LoadingFiveLinesChronological()
+            } else {
+                ScrollView {
+                    VStack {
+                        ForEach(chores) { chore in
+                            ChoreItemView(chore: chore)
+                        }
+                        NavigationLink {
+                            AddExpenseView()
+                        } label: {
+                            Text("Add new chore")
+                        }
                     }
                 }
             }

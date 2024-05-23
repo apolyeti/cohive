@@ -21,14 +21,32 @@ final class SignUpUsingEmailViewModel : ObservableObject {
     @Published var firstName = ""
     @Published var lastName = ""
     
+    @Published var emailError = ""
+    @Published var passwordError = ""
+    @Published var loginError = ""
+    
+    
     func signUp() async throws {
+        // Check if user has confirmed their email and password
+        emailError = ""
+        passwordError = ""
+        loginError = ""
+        
+        
+
+        
         guard !email.isEmpty, !password.isEmpty else {
             print("No email or password found")
             return
         }
         
-        guard email == confirmEmail, password == confirmPassword else {
-            print("email or password not confirmed")
+        guard email == confirmEmail else {
+            emailError = "Emails do not match"
+            return
+        }
+        
+        guard password == confirmPassword else {
+            passwordError = "Passwords do not match"
             return
         }
        
@@ -69,18 +87,24 @@ struct SignUpUsingEmailView: View {
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
-                TextField("Confirm email", text: $viewModel.email)
+                TextField("Confirm email", text: $viewModel.confirmEmail)
                     .frame(width: 300, height: 20)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
+                
+                if !viewModel.emailError.isEmpty {
+                    Text(viewModel.emailError)
+                        .foregroundStyle(Color.red)
+                        .font(.caption)
+                }
                 HStack {
-                    TextField("First Name", text: $viewModel.email)
+                    TextField("First Name", text: $viewModel.firstName)
                         .frame(width: 130, height: 20)
                         .padding()
                         .background(Color.white)
                         .cornerRadius(10)
-                    TextField("Last Name", text: $viewModel.email)
+                    TextField("Last Name", text: $viewModel.lastName)
                         .frame(width: 130, height: 20)
                         .padding()
                         .background(Color.white)
@@ -91,20 +115,27 @@ struct SignUpUsingEmailView: View {
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
-                SecureField("Confirm Password", text: $viewModel.password)
+                SecureField("Confirm Password", text: $viewModel.confirmPassword)
                     .frame(width: 300, height: 20)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(10)
+                if !viewModel.passwordError.isEmpty {
+                    Text(viewModel.passwordError)
+                        .foregroundStyle(Color.red)
+                        .font(.caption)
+                }
+                
                 Button {
                     Task {
                         do {
                             try await viewModel.signUp()
-                            showSignInView = false
                             return
                         } catch {
                             print("User is either signed up, or invalid data inputted!")
+                            viewModel.loginError = "Email already in use"
                         }
+                        
                         
                         do {
                             try await viewModel.signIn()
@@ -119,8 +150,13 @@ struct SignUpUsingEmailView: View {
                         .font(.headline)
                         .foregroundColor(Color("Accent"))
                         .frame(width:300, height: 55)
-                        .background(Color("Button"))
+                        .background(Color("Button.primary"))
                         .cornerRadius(10)
+                }
+                if !viewModel.loginError.isEmpty {
+                    Text(viewModel.loginError)
+                        .foregroundStyle(Color.red)
+                        .font(.caption)
                 }
                 Spacer()
                 
