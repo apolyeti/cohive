@@ -14,6 +14,7 @@ struct CreateHiveView: View {
     @State private var choreCount : Int = 0
     @State private var choreNames: [String] = []
     @StateObject private var viewModel = CreateHiveViewModel()
+    let disabled = false
     var body: some View {
         ZStack {
             Color("Background").ignoresSafeArea()
@@ -38,9 +39,11 @@ struct CreateHiveView: View {
                             }
                         }
                     ))
+                    .frame(width: 250, height: 5)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
+                    .padding()
                 }
+                
                 
                 HStack {
                     Button {
@@ -51,7 +54,7 @@ struct CreateHiveView: View {
                     } label: {
                         Image(systemName: "plus.circle")
                             .padding()
-                    }.disabled(choreCount >= 10)
+                    }.disabled(choreCount >= 10 || (choreCount > 0 && choreNames[choreCount-1].isEmpty))
                     Button {
                         Task {
                             choreCount -= 1
@@ -68,23 +71,16 @@ struct CreateHiveView: View {
                         hiveCreated = true
                     }
                 } label: {
-                    if (choreCount == 0) {
-                        Text("Maybe later")
-                            .padding()
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(height:55)
-                            .background(Color("Accent"))
-                            .cornerRadius(10)
-                    } else {
-                        Text("Create Hive")
-                            .padding()
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(height:55)
-                            .background(Color("Accent"))
-                            .cornerRadius(10)
-                    }
+                    let label = choreCount == 0 ? "Maybe later" : "Create Hive"
+                
+                    Text(label)
+                        .padding()
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(height:55)
+                        .background(Color("Accent2"))
+                        .cornerRadius(10)
+                   
                 }
             }
         }
