@@ -21,7 +21,7 @@ struct ChoresView: View {
     var body: some View {
         ZStack {
             Color("Background").ignoresSafeArea()
-            if chores.isEmpty {
+            if !viewModel.gotChores {
                 LoadingFiveLinesChronological()
             } else {
                 ScrollView {

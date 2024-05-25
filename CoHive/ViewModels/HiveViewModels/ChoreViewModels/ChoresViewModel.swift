@@ -12,6 +12,7 @@ final class ChoresViewModel : ObservableObject {
     
     @Published var hive: Hive?
     @Published var chores: [Chore] = []
+    @Published var gotChores : Bool = false
     
     
     func loadCurrentUser() async throws -> CoHiveUser {
@@ -27,5 +28,6 @@ final class ChoresViewModel : ObservableObject {
     func loadHiveChores() async throws {
         try await getHive()
         self.chores = self.hive!.chores
+        self.gotChores = true
     }
 }
