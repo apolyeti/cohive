@@ -60,6 +60,7 @@
 		5487CA802BAEBD080070F6C3 /* CoHiveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487CA7F2BAEBD080070F6C3 /* CoHiveUITests.swift */; };
 		5487CA822BAEBD080070F6C3 /* CoHiveUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487CA812BAEBD080070F6C3 /* CoHiveUITestsLaunchTests.swift */; };
 		5490890E2BB043EB004327AD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5490890D2BB043EB004327AD /* .gitignore */; };
+		549583362C02D1700054D41B /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549583352C02D1700054D41B /* SessionView.swift */; };
 		54A7C1CB2BB90B3B00DCD200 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 54A7C1CA2BB90B3B00DCD200 /* FirebaseAnalytics */; };
 		54C0CAA22BB5518C00E9267A /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0CAA12BB5518C00E9267A /* RegisterView.swift */; };
 		54E0A2052BB53A45002009B0 /* JosefinSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54E0A2042BB53A45002009B0 /* JosefinSans.ttf */; };
@@ -140,6 +141,7 @@
 		5490890D2BB043EB004327AD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		5495832B2C0168320054D41B /* CoHiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoHiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5495832C2C0168320054D41B /* CoHiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoHiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		549583352C02D1700054D41B /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
 		54C0CA9D2BB53DED00E9267A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54C0CAA12BB5518C00E9267A /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		54E0A2042BB53A45002009B0 /* JosefinSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JosefinSans.ttf; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				5444C32B2BB62D7C00836F33 /* HiveViews */,
 				5444C32A2BB62D5400836F33 /* NoHiveViews */,
 				548290B42BBC9158002BD95D /* SettingsView.swift */,
+				549583352C02D1700054D41B /* SessionView.swift */,
 			);
 			path = SessionViews;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				548290B92BBE211D002BD95D /* GIDSignInButton.swift in Sources */,
 				5483B9612BFE8DA90031C8C3 /* AddExpenseViewModel.swift in Sources */,
 				548290C62BBE2FBC002BD95D /* SignInUsingGoogleHelper.swift in Sources */,
+				549583362C02D1700054D41B /* SessionView.swift in Sources */,
 				545EC9F02BB51D0A00143A64 /* Chore.swift in Sources */,
 				54EC2C592BF5CADF008018C0 /* NameNewHiveView.swift in Sources */,
 				5483B95E2BFE8D680031C8C3 /* HiveViewModel.swift in Sources */,
