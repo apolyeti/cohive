@@ -61,6 +61,7 @@
 		5487CA822BAEBD080070F6C3 /* CoHiveUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5487CA812BAEBD080070F6C3 /* CoHiveUITestsLaunchTests.swift */; };
 		5490890E2BB043EB004327AD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5490890D2BB043EB004327AD /* .gitignore */; };
 		549583362C02D1700054D41B /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549583352C02D1700054D41B /* SessionView.swift */; };
+		549583382C02D30C0054D41B /* NoHiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549583372C02D30C0054D41B /* NoHiveView.swift */; };
 		54A7C1CB2BB90B3B00DCD200 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 54A7C1CA2BB90B3B00DCD200 /* FirebaseAnalytics */; };
 		54C0CAA22BB5518C00E9267A /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C0CAA12BB5518C00E9267A /* RegisterView.swift */; };
 		54E0A2052BB53A45002009B0 /* JosefinSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 54E0A2042BB53A45002009B0 /* JosefinSans.ttf */; };
@@ -142,6 +143,7 @@
 		5495832B2C0168320054D41B /* CoHiveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoHiveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5495832C2C0168320054D41B /* CoHiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoHiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		549583352C02D1700054D41B /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
+		549583372C02D30C0054D41B /* NoHiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoHiveView.swift; sourceTree = "<group>"; };
 		54C0CA9D2BB53DED00E9267A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54C0CAA12BB5518C00E9267A /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		54E0A2042BB53A45002009B0 /* JosefinSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JosefinSans.ttf; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				54EC2C582BF5CADF008018C0 /* NameNewHiveView.swift */,
 				54EC2C5E2BF5DA42008018C0 /* HiveCreationRedirectView.swift */,
 				54EF59032BFDC17800A52F40 /* CreateHiveView.swift */,
+				549583372C02D30C0054D41B /* NoHiveView.swift */,
 			);
 			path = NoHiveViews;
 			sourceTree = "<group>";
@@ -685,6 +688,7 @@
 				5483B96D2BFF359B0031C8C3 /* LoadingFiveLinesChronological.swift in Sources */,
 				54EC2C5B2BF5CE12008018C0 /* HiveView.swift in Sources */,
 				548290B32BBC8B4C002BD95D /* RootView.swift in Sources */,
+				549583382C02D30C0054D41B /* NoHiveView.swift in Sources */,
 				5444C33F2BB6780900836F33 /* AddUser.swift in Sources */,
 				54C0CAA22BB5518C00E9267A /* RegisterView.swift in Sources */,
 				2E5876342BB7F1C300277551 /* SignInUsingEmailView.swift in Sources */,

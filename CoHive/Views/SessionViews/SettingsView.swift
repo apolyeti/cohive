@@ -15,7 +15,7 @@ struct SettingsView: View {
         ZStack {
             Color("Background")
             List {
-                Button("log out") {
+                Button("Sign out") {
                     Task {
                         do {
                             try viewModel.signOut()
@@ -27,7 +27,7 @@ struct SettingsView: View {
                     }
                 }
                 if viewModel.authProviders.contains(.email) {
-                    Button("reset password") {
+                    Button("Reset Password") {
                         Task {
                             do {
                                 try await viewModel.resetPassword()
@@ -43,7 +43,7 @@ struct SettingsView: View {
             .onAppear {
                 viewModel.loadAuthProviders()
             }
-            .navigationTitle("settings")
+            .navigationTitle("Settings")
         }
     }
 }

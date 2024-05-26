@@ -56,6 +56,16 @@ struct HiveView: View {
                 try? await viewModel.getHive()
             }
         }
+//        .toolbar {
+//            ToolbarItem(placement: .navigationBarTrailing) {
+//                NavigationLink {
+//                    ProfileView(showSignInView: .constant(false))
+//                } label: {
+//                    Image(systemName: "gear")
+//                        .font(.headline)
+//                }
+//            }
+//        }
         .font(Font.custom("Josefin Sans", size: 20))
     }
 }
