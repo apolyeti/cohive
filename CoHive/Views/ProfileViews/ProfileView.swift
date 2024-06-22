@@ -11,6 +11,7 @@ struct ProfileView: View {
         
     @StateObject private var viewModel = ProfileViewModel()
     @Binding var showSignInView: Bool
+    @Binding var path: NavigationPath
     @State private var reloadProfile = false
     
     var body: some View {
@@ -29,21 +30,21 @@ struct ProfileView: View {
                 
                 if let hive = viewModel.user?.hive {
                     if hive.name != "" {
-                        NavigationLink {
-                            HiveView()
-                        } label: {
-                            Text(hive.name)
-                        }
+//                        NavigationLink {
+//                            HiveView()
+//                        } label: {
+//                            Text(hive.name)
+//                        }
                     } else {
                         NavigationLink {
-                            HiveCreationRedirectView()
+                            HiveCreationRedirectView(showSignInView: $showSignInView, path: $path)
                         } label: {
                             Text("Create a new hive")
                         }
                     }
                 } else {
                     NavigationLink {
-                        HiveCreationRedirectView()
+                        HiveCreationRedirectView(showSignInView: $showSignInView, path: $path)
                     } label: {
                         Text("Create a new hive")
                     }
@@ -58,7 +59,7 @@ struct ProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        SettingsView(showSignInView: $showSignInView)
+                        SettingsView(showSignInView: $showSignInView, path: $path)
                     } label: {
                         Image(systemName: "gear")
                             .font(.headline)
@@ -75,6 +76,6 @@ struct ProfileView: View {
 
 #Preview {
     NavigationStack {
-        ProfileView(showSignInView: .constant(false))
+        ProfileView(showSignInView: .constant(false), path: .constant(NavigationPath()))
     }
 }

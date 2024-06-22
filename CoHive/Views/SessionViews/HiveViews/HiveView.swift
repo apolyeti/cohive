@@ -9,9 +9,13 @@ import SwiftUI
 
 struct HiveView: View {
     @StateObject private var viewModel = HiveViewModel()
+    @Binding var showSignInView: Bool
+    @Binding var path: NavigationPath
     
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor(Color("Button"))
+    init(showSignInView: Binding<Bool>, path: Binding<NavigationPath>) {
+        _showSignInView = showSignInView
+        _path = path
+        UITabBar.appearance().backgroundColor = UIColor(Color("Button.primary"))
     }
 
     
@@ -56,22 +60,22 @@ struct HiveView: View {
                 try? await viewModel.getHive()
             }
         }
-//        .toolbar {
-//            ToolbarItem(placement: .navigationBarTrailing) {
-//                NavigationLink {
-//                    ProfileView(showSignInView: .constant(false))
-//                } label: {
-//                    Image(systemName: "gear")
-//                        .font(.headline)
-//                }
-//            }
-//        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink {
+                    ProfileView(showSignInView: $showSignInView, path: $path)
+                } label: {
+                    Image(systemName: "person.circle")
+                        .font(.headline)
+                }
+            }
+        }
         .font(Font.custom("Josefin Sans", size: 20))
     }
 }
 
 #Preview {
     NavigationStack {
-        HiveView()
+        HiveView(showSignInView: .constant(false), path: .constant(NavigationPath()))
     }
 }

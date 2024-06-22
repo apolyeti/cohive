@@ -64,34 +64,47 @@ struct NameNewHiveView: View {
                     TextField("Hive Name",text:$viewModel.hiveName)
                         .frame(width: 250, height: 25)
                         .padding()
-                        .background(Color("Button.secondary"))
-                        .cornerRadius(5)
+                        .background(Color.white)
+                        .cornerRadius(10)
+                    
+                    NavigationLink {
+                        CreateHiveView(hiveName: $viewModel.hiveName, hiveCreated: $hiveCreated)
+                    } label : {
+                        Text("Continue setup")
+                                .padding()
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .frame(height:50)
+                                .background(Color("AccentColor"))
+                                .cornerRadius(10)
+                        }.disabled(viewModel.hiveName.isEmpty)
+                }
 
                     
-                    Button {
-                        Task {
-                            if !viewModel.hiveName.isEmpty {
-                                hiveNamed = true
-                            }
-                        }
-                        
-                    } label: {
-                        Text("Continue setup")
-                            .padding()
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(height:55)
-                            .background(Color("Accent"))
-                            .cornerRadius(10)
-                    }.disabled(viewModel.hiveName.isEmpty)
+//                    Button {
+//                        Task {
+//                            if !viewModel.hiveName.isEmpty {
+//                                hiveNamed = true
+//                            }
+//                        }
+//                        
+//                    } label: {
+//                        Text("Continue setup")
+//                            .padding()
+//                            .font(.headline)
+//                            .foregroundColor(.white)
+//                            .frame(height:50)
+//                            .background(Color("AccentColor"))
+//                            .cornerRadius(10)
+//                    }.disabled(viewModel.hiveName.isEmpty)
                 }
             }
-        } else {
-            CreateHiveView(hiveName: $viewModel.hiveName, hiveCreated: $hiveCreated)
-        }
+        } 
+//        else {
+//            CreateHiveView(hiveName: $viewModel.hiveName, hiveCreated: $hiveCreated)
+//        }
         
     }
-}
 
 #Preview {
     NavigationStack {

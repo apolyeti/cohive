@@ -12,17 +12,39 @@ import SwiftUI
 struct HiveCreationRedirectView: View {
     @State private var hiveCreated: Bool = false
     @State private var hiveNamed: Bool = false
+//    @State private var testPath = NavigationPath([RootView()])
+    @Binding var showSignInView: Bool
+    @Binding var path: NavigationPath
+    
+    private var isHiveNotCreated: Binding<Bool> {
+        Binding<Bool>(
+            get: { !self.hiveCreated },
+            set: { self.hiveCreated = !$0 }
+        )
+    }
+    
     
     var body: some View {
         ZStack {
-            if !hiveCreated {
-                NavigationStack {
-                    NameNewHiveView(hiveCreated: $hiveCreated, hiveNamed: $hiveNamed)
+//            if !hiveCreated {
+//                NavigationStack {
+//                    NameNewHiveView(hiveCreated: $hiveCreated, hiveNamed: $hiveNamed)
+//                }
+//            } else {
+//                NavigationStack {
+//                    HiveView(showSignInView: .constant(false))
+//                }
+//            }
+            if hiveCreated {
+                NavigationStack(path: $path) {
+                    HiveView(showSignInView: $showSignInView, path: $path)
+                    
                 }
-            } else {
-                NavigationStack {
-                    HiveView()
-                }
+            }
+        }
+        .fullScreenCover(isPresented: isHiveNotCreated) {
+            NavigationStack {
+                NameNewHiveView(hiveCreated: $hiveCreated, hiveNamed: $hiveNamed)
             }
         }
     }
@@ -30,6 +52,6 @@ struct HiveCreationRedirectView: View {
 
 #Preview {
     NavigationStack {
-        HiveCreationRedirectView()
+        HiveCreationRedirectView(showSignInView: .constant(false), path: .constant(NavigationPath()))
     }
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct NoHiveView: View {
+    @Binding var showSignInView: Bool
+    @Binding var path: NavigationPath
     var body: some View {
         ZStack {
             Color("Background").ignoresSafeArea()
@@ -17,7 +19,7 @@ struct NoHiveView: View {
                     .multilineTextAlignment(.center)
                 HStack {
                     NavigationLink {
-                        EmptyView()
+                        HiveCreationRedirectView(showSignInView: $showSignInView, path: $path)
                     } label: {
                         Label("Create", systemImage: "plus")
                     }
@@ -34,9 +36,9 @@ struct NoHiveView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
-                    SettingsView(showSignInView: .constant(false))
+                    ProfileView(showSignInView: $showSignInView, path: $path)
                 } label: {
-                    Image(systemName: "gear")
+                    Image(systemName: "person.circle")
                         .font(.headline)
                 }
             }
@@ -46,7 +48,7 @@ struct NoHiveView: View {
 
 #Preview {
     NavigationStack {
-        NoHiveView()
+        NoHiveView(showSignInView: .constant(false), path: .constant(NavigationPath()))
             .font(Font.custom("Josefin Sans", size: 20))
     }
 }

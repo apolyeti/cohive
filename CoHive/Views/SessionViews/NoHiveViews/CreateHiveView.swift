@@ -67,8 +67,12 @@ struct CreateHiveView: View {
                 }
                 Button {
                     Task {
-                        try await viewModel.createNewHive(choreNames: choreNames, hiveName: hiveName)
-                        hiveCreated = true
+                        // we need to add a way to navigate to the hive view, and not let users go back to the create hive view
+                        // navigate to the hive view
+                        Task {
+                            try await viewModel.createNewHive(choreNames: choreNames, hiveName: hiveName)
+                            hiveCreated = true
+                        }
                     }
                 } label: {
                     let label = choreCount == 0 ? "Maybe later" : "Create Hive"
@@ -78,7 +82,7 @@ struct CreateHiveView: View {
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(height:55)
-                        .background(Color("Accent2"))
+                        .background(Color("AccentColor"))
                         .cornerRadius(10)
                    
                 }

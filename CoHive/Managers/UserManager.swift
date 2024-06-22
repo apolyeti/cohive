@@ -78,7 +78,6 @@ final class UserManager {
 //            print(error)
 //        }
         
-        // screw this bruh
         do {
             let hive = try await HiveManager.shared.getHive(hiveId: hiveId)
             let oldUser = try await getUser(userId: userId)

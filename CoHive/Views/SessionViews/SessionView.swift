@@ -21,14 +21,15 @@ final class SessionViewModel: ObservableObject {
 
 struct SessionView: View {
     @Binding var showSignInView: Bool
+    @Binding var path: NavigationPath
     @StateObject var viewModel = SessionViewModel()
     var body: some View {
         VStack {
             if let user = viewModel.user {
                 if user.hive != nil {
-                    HiveView()
+                    HiveView(showSignInView: $showSignInView, path: $path)
                 } else {
-                    NoHiveView()
+                    NoHiveView(showSignInView: $showSignInView, path: $path)
                 }
             }
         }.task {
@@ -43,6 +44,6 @@ struct SessionView: View {
 
 #Preview {
     NavigationStack {
-        SessionView(showSignInView: .constant(false))
+        SessionView(showSignInView: .constant(false), path: .constant(NavigationPath()))
     }
 }
